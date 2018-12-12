@@ -1,4 +1,58 @@
 .App {
   text-align: center;
 }
+#form {
+    border: 1px solid #000;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    padding-left: 10px;
+    width: 317px;
+    display: inline-block;
+    height: 40px;
+    padding: 0;
+    vertical-align: top;
+    position: absolute;
+    right: 650px;
+    top: 610px;
+    margin: 20px;
+    max-width: 300px;
+    padding: 16px;
+  
+}
+#submit {
+    background: #6eba49;
+    border: 1px solid #428842;
+    color: #fff;
+    font-size: 1em;
+    position: absolute;
+    right: 455px;
+    display: inline-block;
+    height: 40px;
+    top: 610px;
+    margin: 20px;
+    max-width: 300px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    align-items: flex-start;
+    text-align: center;
+    
+}
 
+#mainPicture {
+   height: 720px;
+    width: 1440px;
+}
+#picText{
+  color: white;
+  position: absolute;
+  right: 450px;
+  top: 490px;
+}
+#picTextSub{
+  color: white;
+  position: absolute;
+  right: 400px;
+  top: 550px;
+}

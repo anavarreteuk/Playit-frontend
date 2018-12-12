@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import NavBar from './components/NavBar.js'
+import Picture from './components/Picture.js'
 
-import './App.css';
+import './App.css'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello</h1>
+       <NavBar/>
+       <Picture/>
+        <p>Hello</p>
       </div>
     );
   }
 }
 
-export default App;
+export default App
