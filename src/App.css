@@ -61,3 +61,19 @@
   right: 400px;
   top: 550px;
 }
+
+.categories {
+margin-top: 80px;
+}
+
+#category {
+ background-color: #f3f2a7;
+ 
+}
+
+#cath1 {
+  font-family: 'Lato', 'Open Sans', sans-serif;
+  color:rgb(85, 85, 85);
+  margin-bottom: 80px;
+  
+}
