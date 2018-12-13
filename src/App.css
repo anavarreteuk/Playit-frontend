@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+#logo {
+  margin-block-start: 10px;
+  margin-inline-end: 600px;
+  
+}
 #form {
     border: 1px solid #000;
     border-radius: 2px;
@@ -37,7 +42,7 @@
     font-weight: bold;
     align-items: flex-start;
     text-align: center;
-    
+     
 }
 
 #mainPicture {

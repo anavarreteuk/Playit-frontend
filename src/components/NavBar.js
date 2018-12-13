@@ -11,7 +11,7 @@ class NavBar extends Component {
     render() {
         return (
             <div className='NavBar' >
-                <img src={'./logo.png'} alt='logo'/>
+                <img id='logo' src={'./logo.png'} alt='logo'/>
                 <Button>Sign Up</Button>
                 <Button>Log In</Button>
                 <Button>Lessons</Button>
