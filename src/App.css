@@ -12,7 +12,7 @@
     box-sizing: border-box;
     font-size: 1rem;
     padding-left: 10px;
-    width: 317px;
+    width: 100%;
     display: inline-block;
     height: 40px;
     padding: 0;
@@ -36,7 +36,7 @@
     height: 40px;
     top: 610px;
     margin: 20px;
-    max-width: 300px;
+    
     text-align: center;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
@@ -47,7 +47,7 @@
 
 #mainPicture {
    height: 720px;
-    width: 1440px;
+    width: 1445px;
 }
 #picText{
   color: white;
@@ -69,11 +69,17 @@ margin-top: 80px;
 #category {
  background-color: #f3f2a7;
  
+ 
 }
 
 #cath1 {
   font-family: 'Lato', 'Open Sans', sans-serif;
   color:rgb(85, 85, 85);
   margin-bottom: 80px;
-  
-}
+  }
+
+  #instText {
+    position: relative;
+    top: 70px;
+    font-family: 'Lato', 'Open Sans', sans-serif;
+  }

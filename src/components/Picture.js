@@ -12,6 +12,7 @@ class Picture extends Component {
                 <h2 id='picTextSub'> Search thousands of teachers for local and online lessons</h2>
                 <input id='form' type="text" placeholder="Type of Lesson" />
                 <button id='submit'>Search for your lesson </button>
+                
             </div>
         );
     }
