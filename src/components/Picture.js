@@ -13,6 +13,8 @@ class Picture extends Component {
                 <input id='form' type="text" placeholder="Type of Lesson" />
                 <button id='submit'>Search for your lesson </button>
                 
+
+                
             </div>
         );
     }

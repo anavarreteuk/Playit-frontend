@@ -25,12 +25,13 @@ const styles = theme => ({
         maxWidth: '100%',
         maxHeight: '100%',
     },
+    
 });
 
 function ComplexGrid(props) {
     const { classes } = props;
     return <div className={classes.root}>
-        <Paper className={classes.paper}>
+        <Paper id='complexGrid' className={classes.paper}>
           <Grid container spacing={16}>
             <Grid item>
               <ButtonBase className={classes.image}>

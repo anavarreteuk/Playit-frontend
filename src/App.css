@@ -67,20 +67,28 @@ margin-top: 80px;
 }
 
 #category {
- background-color: #f3f2a7;
- 
- 
+  background-color: rgba(153, 217, 238, 0.493);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
 }
+#category:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+#complexGrid:hover {
+background-color: rgba(104, 174, 224)}
+
 
 #cath1 {
   font-family: 'Lato', 'Open Sans', sans-serif;
-  color:rgb(85, 85, 85);
+  color:rgb(144, 144, 144);
   margin-bottom: 80px;
+  font-weight: 300
   }
 
   #instText {
     position: relative;
-    top: 70px;
+    top: 55px;
     font-family: 'Lato', 'Open Sans', sans-serif;
   }
 
@@ -91,15 +99,160 @@ margin-top: 80px;
 } */
 
 .teachers {
-  background: rgb(153, 153, 153);
+  background: rgba(37, 36, 36, 0.116);
   float: left;
   height: 800px;
   width: 550px;
 }
 
-.map {
-  background: rgb(189, 93, 93);
+/* .map {
+  background: rgba(133, 131, 131, 0.021);
   height: 800px;
 
+} */
+
+.HowItWorks h1 {
+font-family: 'Lato', 'Open Sans', sans-serif;
+color: rgb(51, 51, 51);
+text-shadow: rgb(144, 144, 144);
+line-height: 1.3;
+font-weight: 300;
+
+margin-block-start: 50px;
+}
+.HowItWorks{
+  background-color: rgb(245, 245, 245);
+  padding-top: 1px;
+  margin-block-start: 80px;
 }
 
+.HowItWorksSub h3 {
+  font-family: 'Lato', 'Open Sans', sans-serif;
+color: rgb(51, 51, 51);
+line-height: 1.3;
+font-weight: 300;
+text-shadow: rgb(144, 144, 144);
+}
+
+.HowItWorksSub {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.SearchTeacher {
+    text-align: left;
+    width: calc(100% - 560px);
+    display: inline-block;
+    height: 340px;
+    width: 400px;
+    bottom: -150px;
+    vertical-align: bottom
+}
+  
+        
+
+.SearchTeacher h2 {
+
+color: rgb(51, 51, 51);
+text-shadow: rgb(144, 144, 144);
+line-height: 1.3;
+font-weight: 300;
+font:14px/1.5 'Open Sans', sans-serif;
+font-size: 1.5em;
+
+}
+.SearchTeacher h3 {
+  font-family: 'Lato', 'Open Sans', sans-serif;
+color: rgb(51, 51, 51);
+line-height: 1.3;
+font-weight: 300;
+text-shadow: rgb(144, 144, 144);
+}
+.mapTeacher {
+display: inline-block;
+padding-top: 0;
+padding-right: 20px;
+}
+.mapTeacher img {
+    height: 341px;
+    width: 491px;
+}
+
+.howCalendar img{
+  
+    height: 320px;
+    
+    width: 491px;
+}
+
+.howCalendar{
+display: inline-block;
+padding-top: 0;
+padding-left: 20px;
+}
+.Schedule {
+  text-align: left;
+    width: calc(100% - 560px);
+    display: inline-block;
+    height: 340px;
+    width: 400px;
+    vertical-align: bottom
+}
+
+.Schedule h2 {
+color: rgb(51, 51, 51);
+text-shadow: rgb(144, 144, 144);
+line-height: 1.3;
+font-weight: 300;
+font:14px/1.5 'Open Sans', sans-serif;
+font-size: 1.5em;
+}
+
+.Schedule h3 {
+font-family: 'Lato', 'Open Sans', sans-serif;
+color: rgb(51, 51, 51);
+line-height: 1.3;
+font-weight: 300;
+text-shadow: rgb(144, 144, 144);
+}
+
+.calendarWrapper{
+  padding-top: 40px;
+}
+.teacherHow img{
+height: 341px;
+width: 409px;
+}
+.teacherHow {
+  display: inline-block;
+padding-top: 0;
+
+padding-top:30px;
+}
+
+.teacherText {
+  text-align: left;
+    width: calc(100% - 560px);
+    display: inline-block;
+    height: 340px;
+    width: 400px;
+    bottom: -150px;
+    vertical-align: bottom
+}
+
+.teacherText h2{
+color: rgb(51, 51, 51);
+text-shadow: rgb(144, 144, 144);
+line-height: 1.3;
+font-weight: 300;
+font:14px/1.5 'Open Sans', sans-serif;
+font-size: 1.5em;
+}
+
+.teacherText h3{
+   font-family: 'Lato', 'Open Sans', sans-serif;
+color: rgb(51, 51, 51);
+line-height: 1.3;
+font-weight: 300;
+text-shadow: rgb(144, 144, 144);
+}
