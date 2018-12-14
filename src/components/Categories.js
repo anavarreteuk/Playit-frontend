@@ -3,7 +3,9 @@ import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Category from './Category.js'
+
 import '../App.css'
+
 
 
 const styles = theme => ({
@@ -20,7 +22,11 @@ const styles = theme => ({
 class Categories extends React.Component {
     state = {
         spacing: '40',
-    };
+    }
+
+    handlePageChange() {
+        window.location = "teachers";
+    }
 
   
 
@@ -36,7 +42,8 @@ class Categories extends React.Component {
                     <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
                         {[0,1,2,3,4,5,6,7,8].map((value,i,index) => (
                             <Grid key={value} item>
-                                    <Paper key={index} onClick={()=>console.log(index)} id='category' className={classes.paper}>
+                                    <Paper key={index} onClick={this.handlePageChange} id='category' className={classes.paper}>
+                            
                                         <Category  inst={instrArray[i]} />  
                                     </Paper>
                             </Grid>

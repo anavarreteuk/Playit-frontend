@@ -83,3 +83,30 @@ margin-top: 80px;
     top: 70px;
     font-family: 'Lato', 'Open Sans', sans-serif;
   }
+
+/* .teachersAndMap {
+  background: rgb(226, 55, 175);
+  height: 100px;
+  width: 600px;
+} */
+
+.teachers {
+  background: rgb(153, 153, 153);
+  float: left;
+  height: 800px;
+  width: 550px;
+}
+
+.map {
+  background: rgb(189, 93, 93);
+  height: 800px;
+
+}
+
+.clear {
+  clear: both;
+  height: 1px;
+  overflow: hidden;
+  font-size: 0pt;
+  margin-top: -1px;
+}

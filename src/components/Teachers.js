@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ComplexGrid from './ComplexGrid.js'
+import Map from './Map.js'
 
 import "../App.css";
 
@@ -8,10 +10,13 @@ class LogIn extends Component {
       <div className="teachersAndMap">
             <div className="teachers">
                 <h1>Teachers by instr</h1>
+                 <ComplexGrid /> 
             </div>
-            <div className="Map">
+            <div className="map">
                 <h1>Map </h1>
+                <Map />
             </div>
+            <div className='clear'></div>
       </div>
     )
   }
