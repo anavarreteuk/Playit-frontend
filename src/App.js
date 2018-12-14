@@ -3,6 +3,7 @@ import NavBar from './components/NavBar.js'
 import SignUp from './components/SignUp.js'
 import Main from './components/Main.js'
 import LogIn from "./components/LogIn.js";
+import Teachers from './components/Teachers.js'
 
 import {Switch, Route} from 'react-router-dom'
 
@@ -31,10 +32,11 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path="/sign" component={SignUp} />
-          <Route exact path='/login' component={LogIn} />
+          <Route exact path="/login" component={LogIn} />
           <Route exact path="/" component={Main} />
+          <Route exact path="/teachers" component={Teachers} />
         </Switch>
-      </div>;
+      </div>
   }
 }
 
