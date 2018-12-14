@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Button from "@material-ui/core/Button";
@@ -9,13 +9,13 @@ class NavBar extends Component {
   render() {
     return (
       <div className="NavBar">
-        <NavLink to="/">
+        <Link to="/">
           <img id="logo" src={"./logo.png"} alt="logo" />
-        </NavLink>
-        <NavLink to="/sign">
+        </Link>
+        <Link to="/sign">
           <Button>Sign Up</Button>
-        </NavLink>
-        <NavLink to='/login'><Button>Log In</Button></NavLink>
+        </Link>
+        <Link to='/login'><Button>Log In</Button></Link>
         <Button>Lessons</Button>
         <Button>
           <ShoppingCartIcon />

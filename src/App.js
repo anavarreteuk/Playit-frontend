@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import NavBar from './components/NavBar.js'
-import Picture from './components/Picture.js'
-import Categories from './components/Categories.js'
 import SignUp from './components/SignUp.js'
+import Main from './components/Main.js'
+import LogIn from "./components/LogIn.js";
+
 import {Switch, Route} from 'react-router-dom'
 
 import './App.css'
-import LogIn from './components/LogIn.js';
+
 
 
 
@@ -31,8 +32,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/sign" component={SignUp} />
           <Route exact path='/login' component={LogIn} />
-          <Route exact path="/" component={Picture} />
-          <Route exact path='/' component={Categories} />
+          <Route exact path="/" component={Main} />
         </Switch>
       </div>;
   }
