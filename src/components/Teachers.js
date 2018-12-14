@@ -14,7 +14,6 @@ class LogIn extends Component {
           
         </div>
         <div className="map">
-          <h1>Map </h1>
           <Map />
         </div>
       </div>;
