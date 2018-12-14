@@ -103,10 +103,3 @@ margin-top: 80px;
 
 }
 
-.clear {
-  clear: both;
-  height: 1px;
-  overflow: hidden;
-  font-size: 0pt;
-  margin-top: -1px;
-}

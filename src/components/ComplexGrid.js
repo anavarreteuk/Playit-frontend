@@ -12,7 +12,7 @@ const styles = theme => ({
     },
     paper: {
         padding: theme.spacing.unit * 2,
-        margin: 'auto',
+        margin: '10px',
         maxWidth: 500,
     },
     image: {

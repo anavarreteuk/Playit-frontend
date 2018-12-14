@@ -5,7 +5,7 @@ import "../App.css";
 class Map extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="">
         <h1>Map</h1>
       </div>
     );

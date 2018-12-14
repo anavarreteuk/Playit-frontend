@@ -6,19 +6,18 @@ import "../App.css";
 
 class LogIn extends Component {
   render() {
-    return (
-      <div className="teachersAndMap">
-            <div className="teachers">
-                <h1>Teachers by instr</h1>
-                 <ComplexGrid /> 
-            </div>
-            <div className="map">
-                <h1>Map </h1>
-                <Map />
-            </div>
-            <div className='clear'></div>
-      </div>
-    )
+    return <div className="teachersAndMap">
+        <div className="teachers">
+          <h1>Teachers by instr</h1>
+          <ComplexGrid />
+          <ComplexGrid />
+          
+        </div>
+        <div className="map">
+          <h1>Map </h1>
+          <Map />
+        </div>
+      </div>;
   }
 }
 
