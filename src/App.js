@@ -4,6 +4,7 @@ import SignUp from './components/SignUp.js'
 import Main from './components/Main.js'
 import LogIn from "./components/LogIn.js";
 import Teachers from './components/Teachers.js'
+import { CircleArrow as ScrollUpButton } from "react-scroll-up-button"
 
 import {Switch, Route} from 'react-router-dom'
 
@@ -36,6 +37,8 @@ class App extends Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/teachers" component={Teachers} />
         </Switch>
+      <ScrollUpButton />
+      
       </div>
   }
 }

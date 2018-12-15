@@ -7,22 +7,22 @@ import "../App.css";
 
 class NavBar extends Component {
   render() {
-    return (
-      <div className="NavBar">
-        <Link to="/">
+    return <div className="NavBar">
+      <Link style={{ textDecoration: 'none' }} to="/">
           <img id="logo" src={"./logo.png"} alt="logo" />
         </Link>
-        <Link to="/sign">
+        <Link style={{ textDecoration: "none" }} to="/sign">
           <Button>Sign Up</Button>
         </Link>
-        <Link to='/login'><Button>Log In</Button></Link>
+      <Link style={{ textDecoration: 'none' }} to="/login">
+          <Button>Log In</Button>
+        </Link>
         <Button>Lessons</Button>
         <Button>
           <ShoppingCartIcon />
           Cart
         </Button>
-      </div>
-    );
+      </div>;
   }
 }
 

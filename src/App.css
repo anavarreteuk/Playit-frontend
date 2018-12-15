@@ -256,3 +256,7 @@ line-height: 1.3;
 font-weight: 300;
 text-shadow: rgb(144, 144, 144);
 }
+
+.NavBar {
+      border-bottom: 1px solid #ccc;
+}
