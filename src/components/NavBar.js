@@ -7,22 +7,49 @@ import "../App.css";
 
 class NavBar extends Component {
   render() {
-    return <div className="NavBar">
-      <Link style={{ textDecoration: 'none' }} to="/">
+    return (
+      <div className="NavBar">
+        <Link style={{ textDecoration: "none" }} to="/">
           <img id="logo" src={"./logo.png"} alt="logo" />
         </Link>
-        <Link style={{ textDecoration: "none" }} to="/sign">
-          <Button>Sign Up</Button>
-        </Link>
-      <Link style={{ textDecoration: 'none' }} to="/login">
-          <Button>Log In</Button>
-        </Link>
-        <Button>Lessons</Button>
+        {this.props.username ? (
+          <Button>Hello, {this.props.username}</Button>
+        ) : (
+          ""
+        )}
+        {this.props.username ? (
+          <Button onClick={this.props.signout}>Sign Out</Button>
+        ) : (
+          ""
+        )}
+        {this.props.username ? (
+          ""
+        ) : (
+          <Link style={{ textDecoration: "none" }} to="/sign">
+            <Button>Sign Up</Button>
+          </Link>
+        )}
+
+        {this.props.username ? (
+          ""
+        ) : (
+          <Link style={{ textDecoration: "none" }} to="/login">
+            <Button>Log In</Button>
+          </Link>
+        )}
+        {this.props.username ? (
+          <Link style={{ textDecoration: "none" }} to="/lessons">
+            <Button>Lessons</Button>
+          </Link>
+        ) : (
+          ""
+        )}
         <Button>
           <ShoppingCartIcon />
           Cart
         </Button>
-      </div>;
+      </div>
+    );
   }
 }
 

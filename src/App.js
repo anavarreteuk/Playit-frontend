@@ -9,15 +9,24 @@ import { CircleArrow as ScrollUpButton } from "react-scroll-up-button"
 import {Switch, Route} from 'react-router-dom'
 
 import './App.css'
+import Lessons from './components/Lessons.js';
 
 
 
 
 class App extends Component {
+  state = {
+    username: "",
+    teachers: []
+  };
+
+  signin = username => {
+    this.setState({ username });
+  };
   
-  state={
-    teachers:[]
-  }
+  signout = () => {
+    this.setState({ username: "" });
+  };
 
   // componentDidMount() {
   //   fetch('http://localhost:3000/api/v1/teachers')
@@ -27,19 +36,19 @@ class App extends Component {
   //   })})
   // }
 
-
   render() {
     return <div className="App">
-        <NavBar />
+        <NavBar signout={this.signout} username={this.state.username} />
         <Switch>
-          <Route exact path="/sign" component={SignUp} />
+          <Route exact path="/sign" component={signProps => <SignUp signin={this.signin} {...signProps} />} />
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/" component={Main} />
           <Route exact path="/teachers" component={Teachers} />
+          <Route exact path="/lessons" component={Lessons} />
+          <Route component={() => <h1>Page not found</h1>} />
         </Switch>
-      <ScrollUpButton />
-      
-      </div>
+        <ScrollUpButton />
+      </div>;
   }
 }
 
