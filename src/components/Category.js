@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom'
+
 
 import '../App.css'
 
 
 class Category extends Component {
+
+   
+
     render() {
        
         return (
@@ -14,4 +19,4 @@ class Category extends Component {
     }
 }
 
-export default Category
+export default withRouter( Category)

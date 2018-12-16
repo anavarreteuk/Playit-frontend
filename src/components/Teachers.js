@@ -4,7 +4,7 @@ import Map from './Map.js'
 
 import "../App.css";
 
-class LogIn extends Component {
+class Teachers extends Component {
   render() {
     return <div className="teachersAndMap">
         <div className="teachers">
@@ -20,4 +20,4 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn;
+export default Teachers;

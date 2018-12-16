@@ -44,10 +44,25 @@ class NavBar extends Component {
         ) : (
           ""
         )}
-        <Button>
-          <ShoppingCartIcon />
-          Cart
-        </Button>
+        {this.props.username ? (
+          <Link style={{ textDecoration: "none" }} to="/cart">
+            <Button>
+              <ShoppingCartIcon />
+              Cart
+            </Button>
+          </Link>
+        ) : (
+          ""
+        )}
+        {this.props.username ? (
+          <Link style={{ textDecoration: "none" }} to="/teachers">
+            <Button>
+              Teachers
+            </Button>
+          </Link>
+        ) : (
+            ""
+          )}
       </div>
     );
   }

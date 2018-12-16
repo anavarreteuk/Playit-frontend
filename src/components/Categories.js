@@ -3,6 +3,9 @@ import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Category from './Category.js'
+import {withRouter} from 'react-router-dom'
+
+
 
 import '../App.css'
 
@@ -20,12 +23,14 @@ const styles = theme => ({
 });
 
 class Categories extends React.Component {
+
+    
     state = {
-        spacing: '40',
+        spacing: '32',
     }
 
     handlePageChange() {
-        window.location = "teachers";
+        this.props.history.push('/teachers')
     }
 
   
@@ -59,4 +64,4 @@ class Categories extends React.Component {
 
 
 
-export default withStyles(styles)(Categories);
+export default withRouter(withStyles(styles)(Categories));
