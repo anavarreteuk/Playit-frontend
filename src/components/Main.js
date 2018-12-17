@@ -11,7 +11,7 @@ class Main extends Component {
   render() {
     
     return <div className="App">
-        <Picture />
+        <Picture test={this.props.test} handleSubmit={this.props.handleSubmit} handleSearch={this.props.handleSearch} />
       <Categories handleCardValue={this.props.handleCardValue} />
         <HowWorks />
       </div>;

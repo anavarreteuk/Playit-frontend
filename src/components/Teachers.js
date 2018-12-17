@@ -49,6 +49,7 @@ class Teachers extends Component {
         <div className="teachers">
           <form className={classes.container} noValidate autoComplete="off">
             <TextField
+              autoFocus={true}
               fullWidth={true}
               id="outlined-with-placeholder"
               label="What would you like to learn?"

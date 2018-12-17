@@ -5,6 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import Button from "@material-ui/core/Button";
+
 
 const styles = theme => ({
     root: {
@@ -53,7 +55,7 @@ function ComplexGrid(props) {
                 </Grid>
                 <Grid item>
                   <Typography style={{ cursor: "pointer" }}>
-                    Book a lesson
+                  <Button color='primary'>Book a lesson</Button>
                   </Typography>
                 </Grid>
               </Grid>

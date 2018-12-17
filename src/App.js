@@ -19,7 +19,8 @@ class App extends Component {
   state = {
     username: "",
     teachers: [],
-    cardValue:''
+    cardValue:'',
+    searchValue:''
   };
 
   login = student => {
@@ -52,8 +53,8 @@ class App extends Component {
   }
 
   handleCardValue = (event) => { this.setState({ cardValue: event.target.id }); this.props.history.push('/teachers')}
-  
-  
+  handleSearch = (event) => { this.setState({ searchValue: event.target.value }) }
+  handleSubmit = () => { this.setState({cardValue:this.state.searchValue}); this.setState({searchValue:''});this.props.history.push('/teachers')}
   // componentDidMount() {
   //   fetch('http://localhost:3000/api/v1/teachers')
   //   .then(resp=>resp.json())
@@ -68,7 +69,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/sign" component={routerProps => <SignUp signin={this.signin} login={this.login} {...routerProps} />} />
           <Route exact path="/login" component={routerProps => <LogIn login={this.login} {...routerProps}/>} />
-          <Route exact path="/" component={routerProps => <Main handleCardValue={this.handleCardValue} {...routerProps}/>} />
+          <Route exact path="/" component={routerProps => <Main test={this.state.searchValue} handleSubmit={this.handleSubmit} handleSearch={this.handleSearch} handleCardValue={this.handleCardValue} {...routerProps}/>} />
           <Route exact path="/teachers" component={routerProps => <Teachers cardValue={this.state.cardValue}  teachers={this.state.teachers} {...routerProps}/>} />
           <Route exact path="/lessons" component={routerProps => <Lessons username={this.state.username} {...routerProps}/> } />
           <Route exact path="/cart" component={Cart} />
