@@ -43,7 +43,7 @@ class Teachers extends Component {
 
   render() {
     const { classes } = this.props;
-    console.log(this.props.cardValue);
+    
     return (
       <div className="teachersAndMap">
         <div className="teachers">

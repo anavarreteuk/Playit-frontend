@@ -23,6 +23,7 @@
     margin: 20px;
     max-width: 300px;
     padding: 16px;
+    z-index: 2;
   
 }
 #submit {
@@ -42,6 +43,7 @@
     font-weight: bold;
     align-items: flex-start;
     text-align: center;
+    z-index: 2;
      
 }
 
@@ -105,11 +107,13 @@ background-color: rgba(104, 174, 224, 0.452)}
   width: 550px;
 }
 
-/* .map {
+.map {
   background: rgba(133, 131, 131, 0.021);
-  height: 800px;
+  height: 200px;
+  width: 1500px;
+  display: inline;
 
-} */
+}
 
 .HowItWorks h1 {
 font-family: 'Lato', 'Open Sans', sans-serif;
