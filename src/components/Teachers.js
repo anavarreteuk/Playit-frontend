@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ComplexGrid from "./ComplexGrid.js";
-import Map from "./Map.js";
+import MapContainer from "./MapContainer.js";
 import TextField from "@material-ui/core/TextField";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -67,7 +67,7 @@ class Teachers extends Component {
           ))}
         </div>
         <div className="map">
-          <Map />
+          {/* <MapContainer /> */}
         </div>
       </div>
     );

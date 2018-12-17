@@ -108,10 +108,11 @@ background-color: rgba(104, 174, 224, 0.452)}
 }
 
 .map {
-  background: rgba(133, 131, 131, 0.021);
-  height: 200px;
-  width: 1500px;
-  display: inline;
+  
+  height: 800px;
+  width: 885px;
+  float: right;
+  /* display: inline; */
 
 }
 
