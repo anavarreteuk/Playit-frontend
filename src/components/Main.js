@@ -7,10 +7,12 @@ import HowWorks from './HowWorks.js'
 import "../App.css";
 
 class Main extends Component {
+  
   render() {
+    
     return <div className="App">
         <Picture />
-        <Categories />
+      <Categories handleCardValue={this.props.handleCardValue} />
         <HowWorks />
       </div>;
   }

@@ -27,38 +27,42 @@ class Categories extends React.Component {
     
     state = {
         spacing: '32',
+        cardValue:''
     }
 
-    handlePageChange = () => {
-        this.props.history.push('/teachers')
-    }
+    // handlePageChange = (event) => {
+    //     console.log(event.target.id)
+    //      this.setState({cardValue:event.target.id});
+    //     this.props.history.push('/teachers')
+    // }
 
   
 
     render() {
         const { classes } = this.props;
         const { spacing } = this.state;
-        const instrArray = ['Piano', 'Violin', 'Oboe', 'Guitar', 'Flute', 'Drums', 'Saxo', 'Trumpet','Clarinet']
-        return (
-            <div className='categories'>
-            <h1 id='cath1'>Browse categories:</h1>
+        const instrArray = ['Piano', 'Violin', 'Oboe', 'Guitar', 'Flute', 'Drums']
+        return <div className="categories">
+            <h1 id="cath1">Browse categories:</h1>
             <Grid justify="center" container className={classes.root} spacing={16}>
-                <Grid item xs={8}>
-                    <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
-                        {[0,1,2,3,4,5,6,7,8].map((value,i,index) => (
-                            <Grid key={value} item>
-                                    <Paper key={index} onClick={this.handlePageChange} id='category' className={classes.paper}>
-                            
-                                        <Category  inst={instrArray[i]} />  
-                                    </Paper>
-                            </Grid>
-                        ))}
+              <Grid item xs={8}>
+                <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
+                  {[0, 1, 2, 3, 4, 5].map((value, i) => (
+                    <Grid key={value} item>
+                      <Paper
+                        key={instrArray[i]}
+                        onClick={this.props.handleCardValue}
+                        id={instrArray[i]}
+                        className={classes.paper}
+                      >
+                        <h2 className='category' id={instrArray[i]}>{instrArray[i]}</h2>
+                      </Paper>
                     </Grid>
+                  ))}
                 </Grid>
-                
+              </Grid>
             </Grid>
-            </div>
-        )
+          </div>;
     }
 }
 

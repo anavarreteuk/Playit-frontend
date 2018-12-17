@@ -18,7 +18,8 @@ import Cart from './components/Cart.js';
 class App extends Component {
   state = {
     username: "",
-    teachers: []
+    teachers: [],
+    cardValue:''
   };
 
   login = student => {
@@ -49,6 +50,8 @@ class App extends Component {
         })
       })
   }
+
+  handleCardValue = (event) => { this.setState({ cardValue: event.target.id }); this.props.history.push('/teachers')}
   
   
   // componentDidMount() {
@@ -65,8 +68,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/sign" component={routerProps => <SignUp signin={this.signin} login={this.login} {...routerProps} />} />
           <Route exact path="/login" component={routerProps => <LogIn login={this.login} {...routerProps}/>} />
-          <Route exact path="/" component={routerProps => <Main {...routerProps}/>} />
-          <Route exact path="/teachers" component={routerProps => <Teachers teachers={this.state.teachers} {...routerProps}/>} />
+          <Route exact path="/" component={routerProps => <Main handleCardValue={this.handleCardValue} {...routerProps}/>} />
+          <Route exact path="/teachers" component={routerProps => <Teachers cardValue={this.state.cardValue}  teachers={this.state.teachers} {...routerProps}/>} />
           <Route exact path="/lessons" component={routerProps => <Lessons username={this.state.username} {...routerProps}/> } />
           <Route exact path="/cart" component={Cart} />
           <Route component={() => <h1>Page not found</h1>} /> 

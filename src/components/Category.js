@@ -10,7 +10,7 @@ class Category extends Component {
    
 
     render() {
-       
+    //    console.log(this.props.inst)
         return (
             <div>
                 <h1 id='instText' >{this.props.inst}</h1>

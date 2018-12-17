@@ -25,7 +25,7 @@ const styles = theme => ({
 
 class Teachers extends Component {
   state = {
-    inputValue: ""
+    inputValue: this.props.cardValue
   };
 
   handleChange = event => {
@@ -33,20 +33,18 @@ class Teachers extends Component {
   };
 
   filteredTeachers = () => {
-    const allTeachers = this.props.teachers
+    const allTeachers = this.props.teachers;
     var regex = new RegExp(this.state.inputValue, "ig");
 
     return allTeachers.filter(teacher =>
       teacher.instruments.find(instrument => instrument.name.match(regex))
     );
-  }
+  };
 
   render() {
     const { classes } = this.props;
-    
-    
+    console.log(this.props.cardValue);
     return (
-      
       <div className="teachersAndMap">
         <div className="teachers">
           <form className={classes.container} noValidate autoComplete="off">
@@ -60,11 +58,12 @@ class Teachers extends Component {
               variant="outlined"
               onChange={this.handleChange}
               name="inputValue"
+              value={this.state.inputValue}
             />
           </form>
-          {
-              this.filteredTeachers().map( teacher => <ComplexGrid key={teacher.id} teacherObj= {teacher} />)
-          }          
+          {this.filteredTeachers().map(teacher => (
+            <ComplexGrid key={teacher.id} teacherObj={teacher} />
+          ))}
         </div>
         <div className="map">
           <Map />
