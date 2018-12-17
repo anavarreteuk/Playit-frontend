@@ -41,6 +41,13 @@ class App extends Component {
           this.props.history.push('/')
         }
       })
+    fetch('http://localhost:3000/api/v1/teachers')
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          teachers: [...data]
+        })
+      })
   }
   
   
@@ -59,7 +66,7 @@ class App extends Component {
         <Route exact path="/sign" component={routerProps => <SignUp signin={this.signin} login={this.login} {...routerProps} />} />
           <Route exact path="/login" component={routerProps => <LogIn login={this.login} {...routerProps}/>} />
           <Route exact path="/" component={routerProps => <Main {...routerProps}/>} />
-          <Route exact path="/teachers" component={routerProps => <Teachers {...routerProps}/>} />
+          <Route exact path="/teachers" component={routerProps => <Teachers teachers={this.state.teachers} {...routerProps}/>} />
           <Route exact path="/lessons" component={routerProps => <Lessons username={this.state.username} {...routerProps}/> } />
           <Route exact path="/cart" component={Cart} />
           <Route component={() => <h1>Page not found</h1>} /> 

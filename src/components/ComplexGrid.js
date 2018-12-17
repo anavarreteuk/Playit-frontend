@@ -29,34 +29,37 @@ const styles = theme => ({
 });
 
 function ComplexGrid(props) {
+  console.log(props.teacherObj)
     const { classes } = props;
     return <div className={classes.root}>
-        <Paper id='complexGrid' className={classes.paper}>
+        <Paper id="complexGrid" className={classes.paper}>
           <Grid container spacing={16}>
             <Grid item>
               <ButtonBase className={classes.image}>
-                <img className={classes.img} alt="complex" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUzmcXfpKcca8Y0zQLCpLVohzfk-7yf4pR4NcNEr750mkKiMZDoA" />
+                <img className={classes.img} alt="complex" src={props.teacherObj.image} />
               </ButtonBase>
             </Grid>
             <Grid item xs={12} sm container>
               <Grid item xs container direction="column" spacing={16}>
                 <Grid item xs>
                   <Typography gutterBottom variant="subtitle1">
-                    Standard license
+                    {props.teacherObj.username}
                   </Typography>
                   <Typography gutterBottom>
-                    Full resolution 1920x1080 • JPEG
+                    {props.teacherObj.instruments.map(ins => ins.name)}
                   </Typography>
-                  <Typography color="textSecondary">ID: 1030114</Typography>
+                  <Typography color="textSecondary">
+                    {props.teacherObj.email}{" "}
+                  </Typography>
                 </Grid>
                 <Grid item>
                   <Typography style={{ cursor: "pointer" }}>
-                    Remove
+                    Book a lesson
                   </Typography>
                 </Grid>
               </Grid>
               <Grid item>
-                <Typography variant="subtitle1">$19.00</Typography>
+                <Typography variant="subtitle1">£29.00</Typography>
               </Grid>
             </Grid>
           </Grid>
