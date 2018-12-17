@@ -38,7 +38,7 @@ class App extends Component {
           this.signout()
         } else {
           this.login(data)
-          this.props.history.push('/')
+          // this.props.history.push('/')
         }
       })
     fetch('http://localhost:3000/api/v1/teachers')
@@ -63,7 +63,7 @@ class App extends Component {
     return <div className="App">
         <NavBar signout={this.signout} username={this.state.username} />
         <Switch>
-        <Route exact path="/sign" component={routerProps => <SignUp signin={this.signin} login={this.login} {...routerProps} />} />
+          <Route exact path="/sign" component={routerProps => <SignUp signin={this.signin} login={this.login} {...routerProps} />} />
           <Route exact path="/login" component={routerProps => <LogIn login={this.login} {...routerProps}/>} />
           <Route exact path="/" component={routerProps => <Main {...routerProps}/>} />
           <Route exact path="/teachers" component={routerProps => <Teachers teachers={this.state.teachers} {...routerProps}/>} />

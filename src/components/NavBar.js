@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Button from "@material-ui/core/Button";
@@ -7,64 +7,36 @@ import "../App.css";
 
 class NavBar extends Component {
   render() {
-    return (
-      <div className="NavBar">
-        <Link style={{ textDecoration: "none" }} to="/">
+    return <div className="NavBar">
+      <NavLink style={{ textDecoration: "none" }} to="/">
           <img id="logo" src={"./logo.png"} alt="logo" />
-        </Link>
-        {this.props.username ? (
-          <Button>Hello, {this.props.username}</Button>
-        ) : (
-          ""
-        )}
-        {this.props.username ? (
-          <Button onClick={this.props.signout}>Sign Out</Button>
-        ) : (
-          ""
-        )}
-        {this.props.username ? (
-          ""
-        ) : (
-          <Link style={{ textDecoration: "none" }} to="/sign">
+      </NavLink>
+        {this.props.username ? <Button>
+            Hello, {this.props.username}
+          </Button> : ""}
+        {this.props.username ? <Button onClick={this.props.signout}>
+            Sign Out
+          </Button> : ""}
+      {this.props.username ? "" : <NavLink style={{ textDecoration: "none" }} to="/sign">
             <Button>Sign Up</Button>
-          </Link>
-        )}
+      </NavLink>}
 
-        {this.props.username ? (
-          ""
-        ) : (
-          <Link style={{ textDecoration: "none" }} to="/login">
+      {this.props.username ? "" : <NavLink style={{ textDecoration: "none" }} to="/login">
             <Button>Log In</Button>
-          </Link>
-        )}
-        {this.props.username ? (
-          <Link style={{ textDecoration: "none" }} to="/lessons">
+          </NavLink>}
+      {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/lessons">
             <Button>Lessons</Button>
-          </Link>
-        ) : (
-          ""
-        )}
-        {this.props.username ? (
-          <Link style={{ textDecoration: "none" }} to="/cart">
+          </NavLink> : ""}
+      {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/cart">
             <Button>
               <ShoppingCartIcon />
               Cart
             </Button>
-          </Link>
-        ) : (
-          ""
-        )}
-        {this.props.username ? (
-          <Link style={{ textDecoration: "none" }} to="/teachers">
-            <Button>
-              Teachers
-            </Button>
-          </Link>
-        ) : (
-            ""
-          )}
-      </div>
-    );
+      </NavLink> : ""}
+        {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/teachers">
+            <Button>Teachers</Button>
+          </NavLink> : ""}
+      </div>;
   }
 }
 

@@ -29,7 +29,6 @@ const styles = theme => ({
 });
 
 function ComplexGrid(props) {
-  console.log(props.teacherObj)
     const { classes } = props;
     return <div className={classes.root}>
         <Paper id="complexGrid" className={classes.paper}>

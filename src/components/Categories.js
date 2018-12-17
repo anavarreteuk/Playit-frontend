@@ -29,7 +29,7 @@ class Categories extends React.Component {
         spacing: '32',
     }
 
-    handlePageChange() {
+    handlePageChange = () => {
         this.props.history.push('/teachers')
     }
 

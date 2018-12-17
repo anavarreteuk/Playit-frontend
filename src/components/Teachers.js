@@ -34,12 +34,17 @@ class Teachers extends Component {
 
   filteredTeachers = () => {
     const allTeachers = this.props.teachers
-    return allTeachers.filter(teacher => teacher.username.includes(this.state.inputValue))
+    var regex = new RegExp(this.state.inputValue, "ig");
+
+    return allTeachers.filter(teacher =>
+      teacher.instruments.find(instrument => instrument.name.match(regex))
+    );
   }
 
   render() {
     const { classes } = this.props;
-    console.log(this.filteredTeachers())
+    
+    
     return (
       
       <div className="teachersAndMap">
