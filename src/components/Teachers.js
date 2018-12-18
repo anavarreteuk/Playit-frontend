@@ -67,7 +67,7 @@ class Teachers extends Component {
           ))}
         </div>
         <div className="map">
-          {/* <MapContainer /> */}
+          <MapContainer />
         </div>
       </div>
     );
