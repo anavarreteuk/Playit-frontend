@@ -4,6 +4,7 @@ import SignUp from './components/SignUp.js'
 import Main from './components/Main.js'
 import LogIn from "./components/LogIn.js";
 import Teachers from './components/Teachers.js'
+import Availabilities from './components/Availabilities.js'
 import { CircleArrow as ScrollUpButton } from "react-scroll-up-button"
 import API from './components/API'
 import {Switch, Route,withRouter} from 'react-router-dom'
@@ -51,7 +52,7 @@ class App extends Component {
         })
       })
   }
-
+  handleClick = (id) => {this.props.history.push(`/teachers/${id}/availabilities`)}
   handleCardValue = (event) => { this.setState({ cardValue: event.target.id }); this.props.history.push('/teachers')}
   handleSearch = (event) => { this.setState({ searchValue: event.target.value }) }
   handleSubmit = () => { this.setState({cardValue:this.state.searchValue}); this.setState({searchValue:''});this.props.history.push('/teachers')}
@@ -70,9 +71,10 @@ class App extends Component {
           <Route exact path="/sign" component={routerProps => <SignUp signin={this.signin} login={this.login} {...routerProps} />} />
           <Route exact path="/login" component={routerProps => <LogIn login={this.login} {...routerProps}/>} />
           <Route exact path="/" component={routerProps => <Main test={this.state.searchValue} handleSubmit={this.handleSubmit} handleSearch={this.handleSearch} handleCardValue={this.handleCardValue} {...routerProps}/>} />
-          <Route exact path="/teachers" component={routerProps => <Teachers cardValue={this.state.cardValue}  teachers={this.state.teachers} {...routerProps}/>} />
+          <Route exact path="/teachers" component={routerProps => <Teachers handleClick={this.handleClick} cardValue={this.state.cardValue}  teachers={this.state.teachers} {...routerProps}/>} />
           <Route exact path="/lessons" component={routerProps => <Lessons username={this.state.username} {...routerProps}/> } />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/teachers/:id/availabilities" component={routerProps => <Availabilities {...routerProps}/> } />
           <Route component={() => <h1>Page not found</h1>} /> 
         </Switch>
         <ScrollUpButton />

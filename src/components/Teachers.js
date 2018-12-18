@@ -63,7 +63,7 @@ class Teachers extends Component {
             />
           </form>
           {this.filteredTeachers().map(teacher => (
-            <ComplexGrid key={teacher.id} teacherObj={teacher} />
+            <ComplexGrid handleClick={this.props.handleClick} key={teacher.id} teacherObj={teacher} />
           ))}
         </div>
         <div className="map">

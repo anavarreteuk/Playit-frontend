@@ -30,8 +30,11 @@ const styles = theme => ({
     
 });
 
+
+
 function ComplexGrid(props) {
     const { classes } = props;
+    
     return <div className={classes.root}>
         <Paper id="complexGrid" className={classes.paper}>
           <Grid container spacing={16}>
@@ -50,17 +53,21 @@ function ComplexGrid(props) {
                     {props.teacherObj.instruments.map(ins => ins.name)}
                   </Typography>
                   <Typography color="textSecondary">
-                    {props.teacherObj.email}{" "}
+                    {props.teacherObj.location}
                   </Typography>
                 </Grid>
                 <Grid item>
                   <Typography style={{ cursor: "pointer" }}>
-                  <Button color='primary'>Book a lesson</Button>
+                    <Button id={props.teacherObj.id} onClick={()=>props.handleClick(props.teacherObj.id)} color="primary">
+                      Book a lesson
+                    </Button>
                   </Typography>
                 </Grid>
               </Grid>
               <Grid item>
-                <Typography variant="subtitle1">£{props.teacherObj.price_hour} p/h</Typography>
+                <Typography variant="subtitle1">
+                  £{props.teacherObj.price_hour} p/h
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
