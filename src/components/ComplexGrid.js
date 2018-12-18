@@ -60,7 +60,7 @@ function ComplexGrid(props) {
                 </Grid>
               </Grid>
               <Grid item>
-                <Typography variant="subtitle1">£29.00</Typography>
+                <Typography variant="subtitle1">£{props.teacherObj.price_hour} p/h</Typography>
               </Grid>
             </Grid>
           </Grid>
