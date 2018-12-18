@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default class Availabilities extends React.Component {
+  
   render() {
     return (
       <div>
