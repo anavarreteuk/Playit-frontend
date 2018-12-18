@@ -4,9 +4,17 @@ export default class Availabilities extends React.Component {
   
   render() {
     return (
-      <div>
-        <h1>Aqui habra un calendario para reservar con el profesor</h1>
-      </div>
+      <div id="TTE-UUID" />
+        
+      
     )
+  }
+
+
+componentDidMount() {
+  window.TTE.init({
+    targetDivId: "TTE-UUID",
+    uuid: 'f9b692f6-c108-4607-ba4f-1f4d15d89546'
+      });
   }
 }
