@@ -77,7 +77,6 @@ class App extends Component {
           <Route exact path="/teachers/:id/availabilities" component={routerProps => <Availabilities {...routerProps}/> } />
           <Route component={() => <h1>Page not found</h1>} /> 
         </Switch>
-        
         <ScrollUpButton />
       </div>;
   }
