@@ -6,6 +6,7 @@
     "@material-ui/core": "^3.6.2",
     "@material-ui/icons": "^3.0.1",
     "google-map-react": "^1.1.1",
+    "imagehover.css": "^1.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-geocode": "^0.1.2",

@@ -28,7 +28,7 @@
 }
 #submit {
     background: #6eba49;
-    border: 1px solid #428842;
+    border: 1px solid #0a0e0a;
     color: #fff;
     font-size: 1em;
     position: absolute;
@@ -44,37 +44,128 @@
     align-items: flex-start;
     text-align: center;
     z-index: 2;
+    text-shadow: rgba(0, 0, 0, 0.90) 0px 0px 0.5px;
+    cursor: pointer;
+    
      
 }
 
 #mainPicture {
-   height: 720px;
-    width: 1445px;
+   height: 100%;
+    width: 100%;
+    filter: blur(0px)
 }
 #picText{
   color: white;
   position: absolute;
   right: 450px;
   top: 490px;
+  text-shadow: rgba(0, 0, 0, 0.90) 0px 0px 0.5px;
 }
 #picTextSub{
   color: white;
   position: absolute;
   right: 400px;
   top: 550px;
+  text-shadow: rgba(0, 0, 0, 0.90) 0px 0px 0.5px;
 }
 
-.categories {
-margin-top: 80px;
+.category {
+padding-top: 40px;
+z-index: 2;
+color:white;
+font-size: 1.75em;
+text-shadow: rgba(0, 0, 0, 0.90) 0px 0px 0.5px;
 }
+/* .category:hover{
+  background-color: rgba(153, 217, 238, 0.493);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+} */
+#Ob{
+  background-image: url('oboe.jpeg');
+  z-index: 1;
+   cursor: pointer;
+   border-style: solid;
+   
+   
+}
+#Ob:hover{
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+#Flu:hover{
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+#Vi:hover{
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+#Pi:hover{
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+#Dru:hover{
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+#Gui:hover{
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+#Flu{
+  background-image: url('flute.jpg');
+  z-index: 1;
+  cursor: pointer;
+  border-style: solid;
+}
+#Vi{
+  background-image: url('violin.png');
+  z-index: 1;
+  cursor: pointer;
+  border-style: solid;
+}
+#Gui{
+  background-image: url('guitar.png');
+  z-index: 1;
+  cursor: pointer;
+  border-style: solid;
+}
+#Pi{
+  background-image: url('piano.png');
+  z-index: 1;
+    cursor: pointer;
+    border-style: solid;
 
-#category {
+  
+}
+#Dru{
+  background-image: url('drums.png');
+    z-index: 1;
+      cursor: pointer;
+border-style: solid;
+}
+#test {
   background-color: rgba(153, 217, 238, 0.493);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   cursor: pointer;
 }
-#category:hover {
+#test:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 #complexGrid:hover {
@@ -83,9 +174,11 @@ background-color: rgba(104, 174, 224, 0.452)}
 
 #cath1 {
   font-family: 'Lato', 'Open Sans', sans-serif;
-  color:rgb(144, 144, 144);
+  color:rgb(85, 85, 85);
+  margin-top: 60px;
   margin-bottom: 80px;
-  font-weight: 300
+  font-size: 2.5em;
+  font-weight: 400;
   }
 
   #instText {
@@ -264,5 +357,22 @@ text-shadow: rgb(144, 144, 144);
 
 .NavBar  {
 border-bottom: 1px solid #ccc;
-      
+}
+
+.footer{
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 35px;
+padding-bottom: 20px; 
+color: #FFF;
+background: #555;
+border-top: solid 1px #252525;
+border-top: solid 1px #252525;
+box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15); 
+}
+
+.textPictureWrapper{
+  height: 100%;
+  width: 100%;
+  
 }
