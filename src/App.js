@@ -52,17 +52,16 @@ class App extends Component {
         })
       })
   }
-  handleClick = (id) => {this.props.history.push(`/teachers/${id}/availabilities`)}
+  date = () => {
+    var today = new Date(),
+    date = today.getDate() + '' + (today.getMonth() + 1) + '' + today.getFullYear();
+  return date}
+  
+  handleClick = (id) => {this.props.history.push(`/teachers/${id}/availabilities/${this.date()}`)}
   handleCardValue = (event) => { this.setState({ cardValue: event.target.id }); this.props.history.push('/teachers')}
   handleSearch = (event) => { this.setState({ searchValue: event.target.value }) }
   handleSubmit = () => { this.setState({cardValue:this.state.searchValue}); this.setState({searchValue:''});this.props.history.push('/teachers')}
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/api/v1/teachers')
-  //   .then(resp=>resp.json())
-  //   .then(data => {this.setState({
-  //     teachers:[...data]
-  //   })})
-  // }
+  
 
 
   render() {
@@ -75,7 +74,7 @@ class App extends Component {
           <Route exact path="/teachers" component={routerProps => <Teachers handleClick={this.handleClick} cardValue={this.state.cardValue}  teachers={this.state.teachers} {...routerProps}/>} />
           <Route exact path="/lessons" component={routerProps => <Lessons username={this.state.username} {...routerProps}/> } />
           <Route exact path="/cart" component={Cart} />
-          <Route exact path="/teachers/:id/availabilities" component={routerProps => <Availabilities {...routerProps}/> } />
+          <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities {...routerProps}/> } />
           <Route component={() => <h1>Page not found</h1>} /> 
         </Switch>
         <ScrollUpButton />
