@@ -377,3 +377,12 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);
 
   
 }
+
+body {
+    opacity: 1;
+    transition: 1s opacity;
+}
+body.fade-out {
+    opacity: 0;
+    transition: none;
+}
