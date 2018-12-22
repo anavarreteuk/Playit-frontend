@@ -5,6 +5,7 @@ import Main from './components/Main.js'
 import LogIn from "./components/LogIn.js";
 import Teachers from './components/Teachers.js'
 import Availabilities from './components/Availabilities.js'
+import Availability from './components/Availability.js'
 import { CircleArrow as ScrollUpButton } from "react-scroll-up-button"
 import API from './components/API'
 import {Switch, Route,withRouter} from 'react-router-dom'
@@ -53,7 +54,7 @@ class App extends Component {
       })
   }
   date = () => {
-    var today = new Date(),
+    const today = new Date(),
     date = today.getDate() + '' + (today.getMonth() + 1) + '' + today.getFullYear();
   return date}
   
@@ -75,6 +76,7 @@ class App extends Component {
           <Route exact path="/lessons" component={routerProps => <Lessons username={this.state.username} {...routerProps}/> } />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities {...routerProps}/> } />
+          <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availability {...routerProps} />} />
           <Route component={() => <h1>Page not found</h1>} /> 
         </Switch>
         <ScrollUpButton />
