@@ -22,8 +22,12 @@ class App extends Component {
     username: "",
     teachers: [],
     cardValue:'',
-    searchValue:''
+    searchValue:'',
+    availabilities: []
   };
+
+  callAvailabilities = (data) => {
+    this.setState({ availabilities: [...data]})}
 
   login = student => {
     localStorage.setItem('token', student.token)
@@ -75,7 +79,7 @@ class App extends Component {
           <Route exact path="/teachers" component={routerProps => <Teachers handleClick={this.handleClick} cardValue={this.state.cardValue}  teachers={this.state.teachers} {...routerProps}/>} />
           <Route exact path="/lessons" component={routerProps => <Lessons username={this.state.username} {...routerProps}/> } />
           <Route exact path="/cart" component={Cart} />
-          <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities {...routerProps}/> } />
+          <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities availableState={this.state.availabilities} callAvailabilities={this.callAvailabilities} {...routerProps}/> } />
           <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availability {...routerProps} />} />
           <Route component={() => <h1>Page not found</h1>} /> 
         </Switch>

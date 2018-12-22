@@ -4,18 +4,13 @@ import Availability from './Availability.js'
 
 export default class Availabilities extends React.Component {
   
-    
-    state = {
-      availabilities:[]
-    }
-  
-   componentDidMount(){
+  shouldComponentUpdate(){
      this.caller()                
   }
   
   caller=()=>{
   API.availabilities(this.props.match.params.id, this.props.match.params.date)
-  .then(data=> this.setState({ availabilities: [...data] }))}
+  .then(data=> this.props.callAvailabilities(data) )}
     
   reverse=()=> {
     let a= this.props.match.params.date.slice(0,2)
@@ -100,7 +95,7 @@ export default class Availabilities extends React.Component {
         </h1>
         <button onClick={this.handleNext}>Next Week</button>
 
-        {this.state.availabilities.map(availability => (
+      {this.props.availableState.map(availability => (
           <Availability
             date={this.props.match.params.date}
             caller={this.caller}
