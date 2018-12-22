@@ -13,7 +13,7 @@ export default class Availability extends React.Component {
             student_id: 5,
             availability_id: this.props.avail.id
           })
-        }).then(resp => resp.json())
+        }).then(resp => resp.json()).then(this.props.caller)
             
             
     }

@@ -12,14 +12,15 @@ export default class Availabilities extends React.Component {
    componentDidMount(){
      this.caller()                
   }
+  
   caller=()=>{
   API.availabilities(this.props.match.params.id, this.props.match.params.date)
-    .then(data=> this.setState({ availabilities: [...data] }))}
+  .then(data=> this.setState({ availabilities: [...data] }))}
     
   reverse=()=> {
     let a= this.props.match.params.date.slice(0,2)
     let b = this.props.match.params.date.slice(2,4)
-    let c = this.props.match.params.date.slice(4, 8)
+    let c = this.props.match.params.date.slice(4,8)
     let d = c + b + a
     const e =d.match(/\d{4}(?=\d{0,2})|\d+/g).join(",")
     return e.substr(0, 7) + "," + e.substr(7);
@@ -88,9 +89,6 @@ export default class Availabilities extends React.Component {
   handlePrevious = () => { this.props.history.push(`/teachers/2/availabilities/${this.subDays()}`);this.caller()}
 
   render() {
-    console.log(this.addDays())
-     console.log(this.todayDays())
-    
     return <div>
       {!(this.date() === this.props.match.params.date)?
       <button onClick={this.handlePrevious}>Previous Week</button>:''}
