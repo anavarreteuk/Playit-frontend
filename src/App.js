@@ -62,7 +62,7 @@ class App extends Component {
     date = today.getDate() + '' + (today.getMonth() + 1) + '' + today.getFullYear();
   return date}
   
-  handleClick = (id) => {this.props.history.push(`/teachers/${id}/availabilities/${this.date()}`)}
+  handleClick = (id) => { this.props.history.push(`/teachers/${id}/availabilities/${this.date()}`)}
   handleCardValue = (event) => { this.setState({ cardValue: event.target.id }); this.props.history.push('/teachers')}
   handleSearch = (event) => { this.setState({ searchValue: event.target.value }) }
   handleSubmit = () => { this.setState({cardValue:this.state.searchValue}); this.setState({searchValue:''});this.props.history.push('/teachers')}
@@ -74,14 +74,14 @@ class App extends Component {
         <NavBar signout={this.signout} username={this.state.username} />
         <Switch>
           <Route exact path="/sign" component={routerProps => <SignUp signin={this.signin} login={this.login} {...routerProps} />} />
-          <Route exact path="/login" component={routerProps => <LogIn login={this.login} {...routerProps}/>} />
-          <Route exact path="/" component={routerProps => <Main test={this.state.searchValue} handleSubmit={this.handleSubmit} handleSearch={this.handleSearch} handleCardValue={this.handleCardValue} {...routerProps}/>} />
-          <Route exact path="/teachers" component={routerProps => <Teachers handleClick={this.handleClick} cardValue={this.state.cardValue}  teachers={this.state.teachers} {...routerProps}/>} />
-          <Route exact path="/lessons" component={routerProps => <Lessons username={this.state.username} {...routerProps}/> } />
+          <Route exact path="/login" component={routerProps => <LogIn login={this.login} {...routerProps} />} />
+          <Route exact path="/" component={routerProps => <Main test={this.state.searchValue} handleSubmit={this.handleSubmit} handleSearch={this.handleSearch} handleCardValue={this.handleCardValue} {...routerProps} />} />
+          <Route exact path="/teachers" component={routerProps => <Teachers callAvailabilities={this.callAvailabilities} handleClick={this.handleClick} cardValue={this.state.cardValue} teachers={this.state.teachers} {...routerProps} />} />
+          <Route exact path="/lessons" component={routerProps => <Lessons username={this.state.username} {...routerProps} />} />
           <Route exact path="/cart" component={Cart} />
-          <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities availableState={this.state.availabilities} callAvailabilities={this.callAvailabilities} {...routerProps}/> } />
+          <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities availableState={this.state.availabilities} callAvailabilities={this.callAvailabilities} {...routerProps} />} />
           <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availability {...routerProps} />} />
-          <Route component={() => <h1>Page not found</h1>} /> 
+          <Route component={() => <h1>Page not found</h1>} />
         </Switch>
         <ScrollUpButton />
       </div>;

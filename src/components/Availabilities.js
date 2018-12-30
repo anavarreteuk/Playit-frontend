@@ -4,13 +4,13 @@ import Availability from './Availability.js'
 
 export default class Availabilities extends React.Component {
   
-  shouldComponentUpdate(){
-     this.caller()                
-  }
+  // componentDidMount(){
+  //    this.caller()                
+  // }
   
   caller=()=>{
   API.availabilities(this.props.match.params.id, this.props.match.params.date)
-  .then(data=> this.props.callAvailabilities(data) )}
+  .then(data=> this.props.callAvailabilities(data))}
     
   reverse=()=> {
     let a= this.props.match.params.date.slice(0,2)
@@ -80,8 +80,8 @@ export default class Availabilities extends React.Component {
     return date
   }
  
-  handleNext = () => { this.props.history.push(`/teachers/2/availabilities/${this.addDays()}`);this.caller()}
-  handlePrevious = () => { this.props.history.push(`/teachers/2/availabilities/${this.subDays()}`);this.caller()}
+  handleNext = () => { this.props.history.push(`/teachers/${this.props.match.params.id}/availabilities/${this.addDays()}`);this.caller()}
+  handlePrevious = () => { this.props.history.push(`/teachers/${this.props.match.params.id}/availabilities/${this.subDays()}`);this.caller()}
 
   render() {
     return <div>

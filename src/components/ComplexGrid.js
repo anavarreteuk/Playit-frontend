@@ -57,8 +57,8 @@ function ComplexGrid(props) {
                 </Grid>
                 <Grid item>
                   <Typography style={{ cursor: "pointer" }}>
-                    <Button id={props.teacherObj.id} onClick={()=>(props.handleClick(props.teacherObj.id))} color="primary">
-                      Book a lesson
+                  <Button id={props.teacherObj.id} onClick={() => (props.handleClick(props.teacherObj.id))} color="primary">
+                    Book a lesson
                     </Button>
                   </Typography>
                 </Grid>

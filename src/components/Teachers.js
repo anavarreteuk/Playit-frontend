@@ -44,33 +44,24 @@ class Teachers extends Component {
   render() {
     const { classes } = this.props;
     
-    return (
-      <div className="teachersAndMap">
+    return <div className="teachersAndMap">
         <div className="teachers">
           <form className={classes.container} noValidate autoComplete="off">
-            <TextField
-              autoFocus={true}
-              fullWidth={true}
-              id="outlined-with-placeholder"
-              label="What would you like to learn?"
-              placeholder="Placeholder"
-              className={classes.textField}
-              margin="normal"
-              variant="outlined"
-              onChange={this.handleChange}
-              name="inputValue"
-              value={this.state.inputValue}
-            />
+            <TextField autoFocus={true} fullWidth={true} id="outlined-with-placeholder" label="What would you like to learn?" placeholder="Placeholder" className={classes.textField} margin="normal" variant="outlined" onChange={this.handleChange} name="inputValue" value={this.state.inputValue} />
           </form>
           {this.filteredTeachers().map(teacher => (
-            <ComplexGrid handleClick={this.props.handleClick} key={teacher.id} teacherObj={teacher} />
+            <ComplexGrid
+              callAvailabilities={this.props.callAvailabilities}
+              handleClick={this.props.handleClick}
+              key={teacher.id}
+              teacherObj={teacher}
+            />
           ))}
         </div>
         <div className="map">
           <MapContainer teachers={this.filteredTeachers()} />
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
