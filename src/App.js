@@ -27,7 +27,8 @@ class App extends Component {
   };
 
   callAvailabilities = (data) => {
-    this.setState({ availabilities: [...data]})}
+    this.setState({ availabilities: [...data]})
+  }
 
   login = student => {
     localStorage.setItem('token', student.token)

@@ -3,14 +3,20 @@ import API from './API.js'
 import Availability from './Availability.js'
 
 export default class Availabilities extends React.Component {
+
+  state = {
+    loaded:false,
+    aval:[]
+
+  }
+
+  componentDidMount(){ (!this.state.loaded)? this.caller() : console.log('loaded') }
   
-  // componentDidMount(){
-  //    this.caller()                
-  // }
   
-  caller=()=>{
-  API.availabilities(this.props.match.params.id, this.props.match.params.date)
-  .then(data=> this.props.callAvailabilities(data))}
+  caller = () => {
+    this.setState({ loaded: true });
+    API.availabilities(this.props.match.params.id, this.props.match.params.date)
+   .then(data=> this.setState({aval:[...data]}))}
     
   reverse=()=> {
     let a= this.props.match.params.date.slice(0,2)
@@ -52,7 +58,8 @@ export default class Availabilities extends React.Component {
      if (mm < 10) {
        mm = '0' + mm;
      }
-     let lavie = dd + '' + mm + '' + yyyy;;
+     let lavie = dd + '' + mm + '' + yyyy;
+     
      return lavie
     }
   
@@ -70,7 +77,7 @@ export default class Availabilities extends React.Component {
     if (mm < 10) {
       mm = '0' + mm;
     }
-    let lavie = dd + '' + mm + '' + yyyy;;
+    let lavie = dd + '' + mm + '' + yyyy;
     return lavie
   }
 
@@ -80,8 +87,8 @@ export default class Availabilities extends React.Component {
     return date
   }
  
-  handleNext = () => { this.props.history.push(`/teachers/${this.props.match.params.id}/availabilities/${this.addDays()}`);this.caller()}
-  handlePrevious = () => { this.props.history.push(`/teachers/${this.props.match.params.id}/availabilities/${this.subDays()}`);this.caller()}
+  handleNext = () => { this.props.history.push(`/teachers/${this.props.match.params.id}/availabilities/${this.addDays()}`)}
+  handlePrevious = () => { this.props.history.push(`/teachers/${this.props.match.params.id}/availabilities/${this.subDays()}`)}
 
   render() {
     return <div>
@@ -95,7 +102,7 @@ export default class Availabilities extends React.Component {
         </h1>
         <button onClick={this.handleNext}>Next Week</button>
 
-      {this.props.availableState.map(availability => (
+      {this.state.aval.map(availability => (
           <Availability
             date={this.props.match.params.date}
             caller={this.caller}
