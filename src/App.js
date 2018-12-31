@@ -19,11 +19,13 @@ import Cart from './components/Cart.js';
 
 class App extends Component {
   state = {
-    username: "",
+    username: '',
+    userId:'',
     teachers: [],
     cardValue:'',
     searchValue:'',
-    availabilities: []
+    availabilities: [],
+
   };
 
   callAvailabilities = (data) => {
@@ -31,8 +33,9 @@ class App extends Component {
   }
 
   login = student => {
+    console.log(student); 
     localStorage.setItem('token', student.token)
-    this.setState({ username: student.username });
+    this.setState({ username: student.username, userId:student.userId });
   };
   
   signout = () => {
