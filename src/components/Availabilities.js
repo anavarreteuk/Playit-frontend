@@ -109,6 +109,7 @@ export default class Availabilities extends React.Component {
             postLesson={this.postLesson}
             key={availability.id}
             avail={availability}
+            studentId={this.props.studentId}
           />
         ))}
       </div>;

@@ -3,6 +3,7 @@ import React from 'react'
 export default class Availability extends React.Component {
     
     postLesson() {
+      console.log(this.props.studentId);
         return fetch("http://localhost:3000/api/v1/lessons", {
           method: "POST",
           headers: { "Content-type": "application/json" },
@@ -10,7 +11,7 @@ export default class Availability extends React.Component {
             date: this.props.date.match(/\d{2}(?=\d{4,6})|\d+/g).join("/") ,
             name: "music class",
             teacher_id: this.props.avail.teacher_id,
-            student_id: 5,
+            student_id: this.props.studentId,
             availability_id: this.props.avail.id
           })
         }).then(resp => resp.json()).then(this.props.caller)
