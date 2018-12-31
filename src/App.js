@@ -32,15 +32,14 @@ class App extends Component {
     this.setState({ availabilities: [...data]})
   }
 
-  login = student => {
-    console.log(student); 
+  login = student => { 
     localStorage.setItem('token', student.token)
     this.setState({ username: student.username, userId:student.userId });
   };
   
   signout = () => {
     localStorage.removeItem('token')
-    this.setState({ username: "" });
+    this.setState({ username: '' , userId:''});
     this.props.history.push("/");
   };
   componentDidMount() {
