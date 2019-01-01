@@ -1,7 +1,7 @@
 import React from 'react'
 import API from './API.js'
 import Availability from './Availability.js'
-
+import Table from './Table.js'
 export default class Availabilities extends React.Component {
 
   state = {
@@ -101,6 +101,11 @@ export default class Availabilities extends React.Component {
             .join("/")}
         </h1>
         <button onClick={this.handleNext}>Next Week</button>
+      <Table all={this.state.aval} 
+      dateone={this.props.match.params.date}
+        callers={this.caller}
+        postLesson={this.postLesson}
+        studentIds={this.props.studentId} />
 
       {this.state.aval.map(availability => (
           <Availability

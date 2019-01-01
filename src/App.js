@@ -65,7 +65,7 @@ class App extends Component {
     date = today.getDate() + '' + (today.getMonth() + 1) + '' + today.getFullYear();
   return date}
   
-  handleClick = (id) => { this.props.history.push(`/teachers/${id}/availabilities/${this.date()}`)}
+  handleClick = (id) => { this.props.history.push(`/teachers/${id}/availabilities/01012019`)}
   handleCardValue = (event) => { this.setState({ cardValue: event.target.id }); this.props.history.push('/teachers')}
   handleSearch = (event) => { this.setState({ searchValue: event.target.value }) }
   handleSubmit = () => { this.setState({cardValue:this.state.searchValue}); this.setState({searchValue:''});this.props.history.push('/teachers')}

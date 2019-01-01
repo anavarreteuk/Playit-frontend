@@ -3,6 +3,7 @@ import React from 'react'
 export default class Availability extends React.Component {
     
     postLesson() {
+      console.log(this.props)
       console.log(this.props.studentId);
         return fetch("http://localhost:3000/api/v1/lessons", {
           method: "POST",
