@@ -15,36 +15,38 @@ class LessonTable extends React.Component {
         const { classes } = this.props;
         return <Paper className={classes.root}>
             <Table className={classes.table}>
-                <TableHead>
-                    <TableRow>
-                        <CustomTableCell>Date</CustomTableCell>
-                        <CustomTableCell>Time</CustomTableCell>
-                        <CustomTableCell align="right">Duration</CustomTableCell>
-                        <CustomTableCell align="right">Teacher</CustomTableCell>
-
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {this.props.studentLessons.lessons.map(row => {
-                        return <TableRow key={row.id}>
-                            <CustomTableCell component="th" scope="row">
-                              {row.date}
-                            </CustomTableCell>
-                            <CustomTableCell component="th" scope="row">
-                              {row.availability.time}
-                            </CustomTableCell>
-                            <CustomTableCell align="right">
-                              {row.availability.duration}
-                            </CustomTableCell>
-                            <CustomTableCell align="right">
-                              {row.teacher.username}
-                            </CustomTableCell>
-                          </TableRow>;
-                    })}
-                    
-                </TableBody>
+              <TableHead style={{ backgroundColor: "red" }}>
+                <TableRow>
+                  <CustomTableCell>Date</CustomTableCell>
+                  <CustomTableCell>Time</CustomTableCell>
+                  <CustomTableCell align="right">
+                    Duration
+                  </CustomTableCell>
+                  <CustomTableCell align="right">
+                    Teacher
+                  </CustomTableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {this.props.studentLessons.lessons.map(row => {
+                  return <TableRow key={row.id}>
+                      <CustomTableCell component="th" scope="row">
+                        {row.date}
+                      </CustomTableCell>
+                      <CustomTableCell component="th" scope="row">
+                        {row.availability.time}
+                      </CustomTableCell>
+                      <CustomTableCell align="right">
+                        {row.availability.duration}
+                      </CustomTableCell>
+                      <CustomTableCell align="right">
+                        {row.teacher.username}
+                      </CustomTableCell>
+                    </TableRow>;
+                })}
+              </TableBody>
             </Table>
-        </Paper>;
+          </Paper>;
 
 
 
@@ -54,19 +56,19 @@ LessonTable.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 const styles = theme => ({
-    root: {
-        width: '100%',
-        marginTop: theme.spacing.unit * 3,
-        overflowX: 'auto',
-    },
-    table: {
-        minWidth: 700,
-    },
-    row: {
-        '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.background.default,
-        },
-    },
+  root: {
+    width: "100%",
+    marginTop: theme.spacing.unit * 3,
+    overflowX: "auto",
+  },
+  table: {
+    minWidth: 700
+  },
+  row: {
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.background.default
+    }
+  }
 });
 const CustomTableCell = withStyles(theme => ({
     head: {

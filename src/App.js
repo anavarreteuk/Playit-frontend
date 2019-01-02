@@ -36,13 +36,7 @@ class App extends Component {
   login = student => { 
     localStorage.setItem('token', student.token)
     this.setState({ username: student.username, userId:student.userId });
-    fetch(`http://localhost:3000/api/v1/students/${this.state.userId}`)
-    .then(resp => resp.json())
-    .then(data => {
-      this.setState({
-        student_login: {...data}
-      })
-    })
+    this.studentCall()
   };
   
   signout = () => {
@@ -67,7 +61,17 @@ class App extends Component {
           teachers: [...data]
         })
       })
-  }
+    } 
+
+  studentCall =() => {
+  return fetch(`http://localhost:3000/api/v1/students/${this.state.userId}`)
+      .then(resp => resp.json())
+  .then(data => {
+    this.setState({
+      student_login: { ...data }
+    })
+  })}
+
   date = () => {
     const today = new Date(),
     date = today.getDate() + '' + (today.getMonth() + 1) + '' + today.getFullYear();
@@ -88,7 +92,7 @@ class App extends Component {
           <Route exact path="/login" component={routerProps => <LogIn login={this.login} {...routerProps} />} />
           <Route exact path="/" component={routerProps => <Main test={this.state.searchValue} handleSubmit={this.handleSubmit} handleSearch={this.handleSearch} handleCardValue={this.handleCardValue} {...routerProps} />} />
           <Route exact path="/teachers" component={routerProps => <Teachers callAvailabilities={this.callAvailabilities} handleClick={this.handleClick} cardValue={this.state.cardValue} teachers={this.state.teachers} {...routerProps} />} />
-          <Route exact path="/lessons" component={routerProps => <Lessons studentLessons={this.state.student_login} username={this.state.username} {...routerProps} />} />
+          <Route exact path="/lessons" component={routerProps => <Lessons studentLessons={this.state.student_login} username={this.state.username} studentCall={this.studentCall} {...routerProps} />} />
           <Route exact path="/cart" component={Cart} />
         <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities studentId={this.state.userId} availableState={this.state.availabilities} callAvailabilities={this.callAvailabilities} {...routerProps} />} />
           <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availability  {...routerProps} />} />

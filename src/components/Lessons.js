@@ -9,6 +9,7 @@ componentDidMount () {
     if(!this.props.username) {
         this.props.history.push('/sign')
     }
+    this.props.studentCall()
 
 }
 
