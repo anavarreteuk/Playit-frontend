@@ -29,9 +29,7 @@ class SimpleTable extends React.Component {
                           "Content-type": "application/json"
                         },
                         body: JSON.stringify({
-                          date: this.props.dateone
-                            .match(/\d{2}(?=\d{4,6})|\d+/g)
-                            .join("/"),
+                            date: this.formattedDate(row),
                           name: "music class",
                           teacher_id: row.teacher_id,
                           student_id: this.props.studentIds,
@@ -42,10 +40,22 @@ class SimpleTable extends React.Component {
                       .then(resp => resp.json())
                       .then(this.props.callers);
                   }
-    // test = () => { this.setState({ teacher_id: row.teacher_id, row_id:row.id}) }
     
+     formattedDate = (row) => {
+         
+         let d = new Date(row.date)
+        console.log(d)
+    let month = String(d.getMonth() + 1);
+    let day = String(d.getDate());
+    const year = String(d.getFullYear());
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return `${day}/${month}/${year}`;
+    }
+
     render(){
-        
         const { classes } = this.props;
     return <Paper className={classes.root}>
         <Table className={classes.table}>
@@ -65,7 +75,7 @@ class SimpleTable extends React.Component {
                     {row.time}
                   </CustomTableCell>
                   <CustomTableCell align="right">{row.duration} minutes</CustomTableCell>
-                  <CustomTableCell align="right">{row.day} - {row.date}</CustomTableCell>
+                  <CustomTableCell align="right">{row.day} - {this.formattedDate(row)}</CustomTableCell>
                   <CustomTableCell align="right">{row.booked ? "Unavailable" : "Available"} {row.booked ? '' : <button onClick={() => this.postLesson(row)}>Book a lesson</button>}</CustomTableCell>
                   
                 </TableRow>;
