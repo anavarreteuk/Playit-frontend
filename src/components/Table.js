@@ -10,30 +10,39 @@ import Paper from '@material-ui/core/Paper';
 
 class SimpleTable extends React.Component {
      
-    
-    
-     postLesson() {
-        console.log(this.props);
-        // console.log(this.props.dateone);
-        //  console.log(this.row.teacher_id);
-        //  console.log(this.props.studentIds);
-        // console.log(this.row.id)
-        return fetch("http://localhost:3000/api/v1/lessons", {
-            method: "POST",
-            headers: { "Content-type": "application/json" },
-            body: JSON.stringify({
-                date: this.props.dateone
-                    .match(/\d{2}(?=\d{4,6})|\d+/g)
-                    .join("/"),
-                name: "music class",
-                teacher_id: this.props.all.map(value => { return value.teacher_id})[0],
-                student_id: this.props.studentIds,
-                availability_id: this.props.all.map(value =>{return value.id})[0]
-            })
-        }).then(resp => resp.json())
-        .then(this.props.callers);
+    state={
+        teacher_id:'',
+        row_id:''
     }
     
+    
+    postLesson = (row) => {
+                    console.log(row);
+                    // console.log(this.props.dateone);
+                     console.log(row.teacher_id);
+                    //  console.log(this.props.studentIds);
+                    return fetch(
+                      "http://localhost:3000/api/v1/lessons",
+                      {
+                        method: "POST",
+                        headers: {
+                          "Content-type": "application/json"
+                        },
+                        body: JSON.stringify({
+                          date: this.props.dateone
+                            .match(/\d{2}(?=\d{4,6})|\d+/g)
+                            .join("/"),
+                          name: "music class",
+                          teacher_id: row.teacher_id,
+                          student_id: this.props.studentIds,
+                          availability_id: row.id
+                        })
+                      }
+                    )
+                      .then(resp => resp.json())
+                      .then(this.props.callers);
+                  }
+    // test = () => { this.setState({ teacher_id: row.teacher_id, row_id:row.id}) }
     
     render(){
         
@@ -42,22 +51,22 @@ class SimpleTable extends React.Component {
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
-              <TableCell>Time</TableCell>
-              <TableCell>Duration</TableCell>
-              <TableCell align="right">Day</TableCell>
-              <TableCell align="right">Availability</TableCell>
+              <CustomTableCell>Time</CustomTableCell>
+              <CustomTableCell>Duration</CustomTableCell>
+              <CustomTableCell align="right">Day</CustomTableCell>
+              <CustomTableCell align="right">Availability</CustomTableCell>
              
             </TableRow>
           </TableHead>
           <TableBody>
             {this.props.all.map(row => {
               return <TableRow key={row.id}>
-                  <TableCell component="th" scope="row">
+                  <CustomTableCell component="th" scope="row">
                     {row.time}
-                  </TableCell>
-                  <TableCell align="right">{row.duration} minutes</TableCell>
-                  <TableCell align="right">{row.day}</TableCell>
-                  <TableCell align="right">{row.booked ? "Unavailable" : "Available"} {row.booked ? '' : <button onClick={()=>this.postLesson()}>Book a lesson</button> }</TableCell>
+                  </CustomTableCell>
+                  <CustomTableCell align="right">{row.duration} minutes</CustomTableCell>
+                  <CustomTableCell align="right">{row.day} - {row.date}</CustomTableCell>
+                  <CustomTableCell align="right">{row.booked ? "Unavailable" : "Available"} {row.booked ? '' : <button onClick={() => this.postLesson(row)}>Book a lesson</button>}</CustomTableCell>
                   
                 </TableRow>;
             })}
@@ -81,5 +90,21 @@ const styles = theme => ({
     table: {
         minWidth: 700,
     },
+    row: {
+        '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.background.default,
+        },
+    },
 });
+const CustomTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+    fontSize: 16
+  },
+  body: {
+    fontSize: 14
+  }
+}))(TableCell);
+
 export default withStyles(styles)(SimpleTable);

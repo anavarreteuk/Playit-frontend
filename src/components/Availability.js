@@ -27,7 +27,7 @@ export default class Availability extends React.Component {
         <h2>{this.props.avail.duration} minutes</h2>
         <h2>{this.props.avail.time}</h2>
       <h1>{this.props.avail.booked ? "Unavailable" : "Available"}</h1>
-        {this.props.avail.booked ? '' : <button onClick={()=>this.postLesson(this.props.avail.id,this.props.avail.teacher_id)}>Book a lesson</button> }
+        {this.props.avail.booked ? '' : <button onClick={()=>this.postLesson()}>Book a lesson</button> }
       </div>;
   }
 }

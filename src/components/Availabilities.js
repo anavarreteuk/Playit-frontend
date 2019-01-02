@@ -107,7 +107,7 @@ export default class Availabilities extends React.Component {
         postLesson={this.postLesson}
         studentIds={this.props.studentId} />
 
-      {this.state.aval.map(availability => (
+      {/* {this.state.aval.map(availability => (
           <Availability
             date={this.props.match.params.date}
             caller={this.caller}
@@ -116,7 +116,7 @@ export default class Availabilities extends React.Component {
             avail={availability}
             studentId={this.props.studentId}
           />
-        ))}
+        ))} */}
       </div>;
   }
 }
