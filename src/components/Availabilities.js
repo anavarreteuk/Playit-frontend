@@ -1,6 +1,6 @@
 import React from 'react'
 import API from './API.js'
-import Availability from './Availability.js'
+// import Availability from './Availability.js'
 import Table from './Table.js'
 export default class Availabilities extends React.Component {
 

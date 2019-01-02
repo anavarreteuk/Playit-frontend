@@ -12,11 +12,14 @@ componentDidMount () {
 }
 
   render() {
-    return (
-      <div className="App">
+    
+    return <div className="App">
         <h1>My lessons</h1>
-      </div>
-    );
+      <h2>{this.props.studentLessons.map(value => value.date)}</h2>
+      <h3>{this.props.studentLessons.map(value=> value.availability).map(value => value.time)}</h3>
+      <h3>{this.props.studentLessons.map(value => value.availability).map(value => value.duration)}</h3>
+
+      </div>;
   }
 }
 

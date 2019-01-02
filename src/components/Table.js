@@ -17,9 +17,9 @@ class SimpleTable extends React.Component {
     
     
     postLesson = (row) => {
-                    console.log(row);
+                    // console.log(row);
                     // console.log(this.props.dateone);
-                     console.log(row.teacher_id);
+                    //  console.log(row.teacher_id);
                     //  console.log(this.props.studentIds);
                     return fetch(
                       "http://localhost:3000/api/v1/lessons",
