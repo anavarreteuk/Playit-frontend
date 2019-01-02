@@ -16,12 +16,7 @@ componentDidMount () {
     
     return <div className="App">
         <h1>My lessons</h1>
-      <h2>{this.props.studentLessons.map(value => value.date)}</h2>
-      <h2>{this.props.studentLessons.map(value => value.teacher_id)}</h2>
-
-      <h3>{this.props.studentLessons.map(value=> value.availability).map(value => value.time)}</h3>
-      <h3>{this.props.studentLessons.map(value => value.availability).map(value => value.duration)}</h3>
-      <LessonTable studentLessons={this.props.studentLessons}/> 
+      <LessonTable studentLessons={this.props.studentLessons} time={this.props.studentLessons.map(value => value.availability)}/> 
       </div>;
   }
 }

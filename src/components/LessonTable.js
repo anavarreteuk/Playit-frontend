@@ -27,14 +27,21 @@ class LessonTable extends React.Component {
                 <TableBody>
                     {this.props.studentLessons.map(row => {
                         return <TableRow key={row.id}>
-                            <CustomTableCell component="th" scope="row">{row.date}</CustomTableCell>
-                            <CustomTableCell component="th" scope="row">time</CustomTableCell>
-                            <CustomTableCell align="right">duration</CustomTableCell>
-                            <CustomTableCell align="right">{row.teacher_id}</CustomTableCell>
-                            
-
-                        </TableRow>;
+                            <CustomTableCell component="th" scope="row">
+                              {row.date}
+                            </CustomTableCell>
+                            <CustomTableCell component="th" scope="row">
+                              {row.availability.time}
+                            </CustomTableCell>
+                            <CustomTableCell align="right">
+                              {row.availability.duration}
+                            </CustomTableCell>
+                            <CustomTableCell align="right">
+                              {row.teacher_id}
+                            </CustomTableCell>
+                          </TableRow>;
                     })}
+                    
                 </TableBody>
             </Table>
         </Paper>;
