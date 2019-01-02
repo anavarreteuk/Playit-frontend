@@ -25,7 +25,7 @@ class LessonTable extends React.Component {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {this.props.studentLessons.map(row => {
+                    {this.props.studentLessons.lessons.map(row => {
                         return <TableRow key={row.id}>
                             <CustomTableCell component="th" scope="row">
                               {row.date}
@@ -37,7 +37,7 @@ class LessonTable extends React.Component {
                               {row.availability.duration}
                             </CustomTableCell>
                             <CustomTableCell align="right">
-                              {row.teacher_id}
+                              {row.teacher.username}
                             </CustomTableCell>
                           </TableRow>;
                     })}

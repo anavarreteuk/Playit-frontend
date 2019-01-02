@@ -25,7 +25,7 @@ class NavBar extends Component {
             <Button>Log In</Button>
           </NavLink>}
       {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/lessons">
-            <Button>Lessons</Button>
+            <Button>My Lessons</Button>
           </NavLink> : ""}
         {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/teachers">
             <Button>Teachers</Button>
