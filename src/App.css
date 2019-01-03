@@ -187,26 +187,48 @@ background-color: rgba(104, 174, 224, 0.452)}
     font-family: 'Lato', 'Open Sans', sans-serif;
   }
 
-/* .teachersAndMap {
-  background: rgb(226, 55, 175);
-  height: 100px;
-  width: 600px;
-} */
+ .teachersAndMap {
+  background:rgba(37, 36, 36, 0.116);
+  width: 1920px;
+  height: 900px;
+  padding-top: 15px;
+  padding-bottom: 110px;
+  
+} 
 
 .teachers {
-  background: rgba(37, 36, 36, 0.116);
+  /* background: rgba(37, 36, 36, 0.116); */
   float: left;
-  height: 800px;
+  height: 100%;
   width: 550px;
 }
 
 .map {
   
-  height: 800px;
-  width: 885px;
-  float: right;
-  /* display: inline; */
+  height: 850px;
+  width: 65%;
+  float: left;
+  border: 7px solid rgb(73, 166, 226);
+  margin-left: 20px;
+  margin-top: 16px;
+  
 
+}
+@media only screen and (max-width: 1500px) {
+  .map {
+height: 750px;
+  width: 800px;
+  float: left;
+  border: 7px solid rgb(73, 166, 226);
+  margin-left: 20px;
+  margin-top: 16px;  }
+}
+@media only screen and (max-width: 1500px) {
+  .wrapper{
+  overflow: scroll;
+  min-height: 150px;
+  max-height: 750px;
+  }
 }
 
 .HowItWorks h1 {
@@ -383,11 +405,9 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);
   border: solid
 }
 .wrapper{
-  
- 
   overflow: scroll;
-  min-height: 700px;
-  max-height: 100px;
+  min-height: 150px;
+  max-height: 800px;
 
 }
 
