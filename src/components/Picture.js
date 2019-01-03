@@ -9,10 +9,10 @@ class Picture extends Component {
         <div className='textpicturewrapper'>
           <h1 id="picText">What would you like to learn today?</h1>
           <h2 id="picTextSub">
-            Search thousands of teachers for local and online lessons
+            Search for teachers for local lessons
           </h2>
         </div>
-        <div>
+        <div className='formCss'>
           <input autoFocus={true} id="form" onChange={this.props.handleSearch} type="text" placeholder="Type of Lesson" value={this.props.test} />
           <button onClick={this.props.handleSubmit} id="submit">
             Search for your lesson{" "}

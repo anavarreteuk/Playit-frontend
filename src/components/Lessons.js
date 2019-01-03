@@ -19,7 +19,9 @@ componentDidMount () {
     
     return <div className="App">
         <h1>My lessons</h1>
+        <div className='myLessons'>
       <LessonTable studentLessons={this.props.studentLessons}/> 
+        </div>
       </div>;
   }
 }

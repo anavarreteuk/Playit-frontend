@@ -56,14 +56,14 @@
 }
 
 #picText{
-  color: black;
+  color: white;
   position: float;
   right: 450px;
   top: 490px;
   text-shadow: rgba(0, 0, 0, 0.90) 0px 0px 0.5px;
 }
 #picTextSub{
-  color: black;
+  color:white;
   position: float;
   right: 400px;
   top: 750px;
@@ -395,10 +395,22 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);
 }
 
 .textpicturewrapper{
-  height: 100%;
-  width: 100%;
-
   
+	position:absolute;
+	top:27%;
+	left:0%;
+	right:60%;
+	bottom:10px;
+	overflow:auto;
+  
+}
+.formCss{
+	position:absolute;
+	top:40%;
+	left:0;
+	right:60%;
+	bottom:10px;
+  overflow:auto;
 }
 
 
@@ -416,10 +428,18 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);
  width: 800px;
   margin-left: 30%;
 }
+.myLessons {
+  width: 1000px;
+  margin-left: 25%;
+}
 @media only screen and (max-width: 1500px) {
 .tableContainer {
  width: 800px;
   margin-left: 25%;
+}
+.myLessons {
+  width: 1000px;
+  margin-left: 15%;
 }
 }
 
