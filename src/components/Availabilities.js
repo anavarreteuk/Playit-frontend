@@ -92,15 +92,16 @@ export default class Availabilities extends React.Component {
 
   render() {
     return <div className='availabilitiesContainer'>
-      {!(this.date() === this.props.match.params.date)?
-      <button onClick={this.handlePrevious}>Previous Week</button>:''}
+     
         <h1>
           Week of{" "}
           {this.props.match.params.date
             .match(/\d{2}(?=\d{4,6})|\d+/g)
             .join("/")}
         </h1>
-        <button onClick={this.handleNext}>Next Week</button>
+         {!(this.date() === this.props.match.params.date)?
+      <button className='previousButton' onClick={this.handlePrevious}>Previous Week</button>:''}
+        <button className='nextButton' onClick={this.handleNext}>Next Week</button>
         <div className='tableContainer'>
       <Table all={this.state.aval} 
       dateone={this.props.match.params.date}
