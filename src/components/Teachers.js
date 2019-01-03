@@ -49,14 +49,18 @@ class Teachers extends Component {
           <form className={classes.container} noValidate autoComplete="off">
             <TextField autoFocus={true} fullWidth={true} id="outlined-with-placeholder" label="What would you like to learn?" placeholder="Placeholder" className={classes.textField} margin="normal" variant="outlined" onChange={this.handleChange} name="inputValue" value={this.state.inputValue} />
           </form>
+          <div className='wrapper'>
           {this.filteredTeachers().map(teacher => (
+            <div className='inditem'>
             <ComplexGrid
               callAvailabilities={this.props.callAvailabilities}
               handleClick={this.props.handleClick}
               key={teacher.id}
               teacherObj={teacher}
             />
+            </div>
           ))}
+          </div>
         </div>
         <div className="map">
           <MapContainer teachers={this.filteredTeachers()} />

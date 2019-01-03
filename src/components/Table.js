@@ -44,7 +44,7 @@ class SimpleTable extends React.Component {
      formattedDate = (row) => {
          
          let d = new Date(row.date)
-        console.log(d)
+        
     let month = String(d.getMonth() + 1);
     let day = String(d.getDate());
     const year = String(d.getFullYear());
