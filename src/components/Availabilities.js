@@ -91,7 +91,7 @@ export default class Availabilities extends React.Component {
   handlePrevious = () => { this.props.history.push(`/teachers/${this.props.match.params.id}/availabilities/${this.subDays()}`)}
 
   render() {
-    return <div>
+    return <div className='availabilitiesContainer'>
       {!(this.date() === this.props.match.params.date)?
       <button onClick={this.handlePrevious}>Previous Week</button>:''}
         <h1>
@@ -101,11 +101,13 @@ export default class Availabilities extends React.Component {
             .join("/")}
         </h1>
         <button onClick={this.handleNext}>Next Week</button>
+        <div className='tableContainer'>
       <Table all={this.state.aval} 
       dateone={this.props.match.params.date}
         callers={this.caller}
         postLesson={this.postLesson}
         studentIds={this.props.studentId} />
+      </div>
 
       {/* {this.state.aval.map(availability => (
           <Availability
