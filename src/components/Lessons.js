@@ -5,12 +5,14 @@ import LessonTable from "./LessonTable";
 
 class Lessons extends Component {
 
+state = {
+loaded: false,
+}
+
 componentDidMount () {
     if(!this.props.username) {
         this.props.history.push('/sign')
     }
-    this.props.studentCall()
-
 }
 
   render() {

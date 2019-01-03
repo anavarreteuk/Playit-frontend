@@ -75,7 +75,7 @@ class SimpleTable extends React.Component {
                     {row.time}
                   </CustomTableCell>
                   <CustomTableCell align="right">{row.duration} minutes</CustomTableCell>
-                  <CustomTableCell align="right">{row.day} - {this.formattedDate(row)}</CustomTableCell>
+                  <CustomTableCell align="right">{this.formattedDate(row)}</CustomTableCell>
                   <CustomTableCell align="right">{row.booked ? "Unavailable" : "Available"} {row.booked ? '' : <button onClick={() => this.postLesson(row)}>Book a lesson</button>}</CustomTableCell>
                   
                 </TableRow>;
