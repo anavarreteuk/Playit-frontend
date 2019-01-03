@@ -17,7 +17,7 @@ componentDidMount () {
 
   render() {
     
-    return <div className="App">
+    return <div className="lessonWrapper">
         <h1>My lessons</h1>
         <div className='myLessons'>
       <LessonTable studentLessons={this.props.studentLessons}/> 

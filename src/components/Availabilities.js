@@ -91,26 +91,27 @@ export default class Availabilities extends React.Component {
   handlePrevious = () => { this.props.history.push(`/teachers/${this.props.match.params.id}/availabilities/${this.subDays()}`)}
 
   render() {
-    return <div className='availabilitiesContainer'>
-     
-        <h1>
-          Week of{" "}
-          {this.props.match.params.date
-            .match(/\d{2}(?=\d{4,6})|\d+/g)
-            .join("/")}
-        </h1>
-         {!(this.date() === this.props.match.params.date)?
-      <button className='previousButton' onClick={this.handlePrevious}>Previous Week</button>:''}
-        <button className='nextButton' onClick={this.handleNext}>Next Week</button>
-        <div className='tableContainer'>
-      <Table all={this.state.aval} 
-      dateone={this.props.match.params.date}
-        callers={this.caller}
-        postLesson={this.postLesson}
-        studentIds={this.props.studentId} />
-      </div>
+    
+    return <div className='availabilitiesWrapper'>
+        {" "}
+        <div className="availabilitiesContainer">
+          <h1>
+            Week of{" "}
+            {this.props.match.params.date
+              .match(/\d{2}(?=\d{4,6})|\d+/g)
+              .join("/")}
+          </h1>
+          {!("31122018" === this.props.match.params.date) ? <button className="previousButton" onClick={this.handlePrevious}>
+              Previous Week
+            </button> : ""}
+          <button className="nextButton" onClick={this.handleNext}>
+            Next Week
+          </button>
+          <div className="tableContainer">
+            <Table all={this.state.aval} dateone={this.props.match.params.date} callers={this.caller} postLesson={this.postLesson} studentIds={this.props.studentId} />
+          </div>
 
-      {/* {this.state.aval.map(availability => (
+          {/* {this.state.aval.map(availability => (
           <Availability
             date={this.props.match.params.date}
             caller={this.caller}
@@ -120,6 +121,7 @@ export default class Availabilities extends React.Component {
             studentId={this.props.studentId}
           />
         ))} */}
-      </div>;
-  }
+        </div>
+      </div>
+}
 }
