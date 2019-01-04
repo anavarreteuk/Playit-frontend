@@ -56,14 +56,14 @@
 }
 
 #picText{
-  color: black;
+  color: white;
   position: float;
   right: 450px;
   top: 490px;
   text-shadow: rgba(0, 0, 0, 0.90) 0px 0px 0.5px;
 }
 #picTextSub{
-  color: black;
+  color:white;
   position: float;
   right: 400px;
   top: 750px;
@@ -187,26 +187,49 @@ background-color: rgba(104, 174, 224, 0.452)}
     font-family: 'Lato', 'Open Sans', sans-serif;
   }
 
-/* .teachersAndMap {
-  background: rgb(226, 55, 175);
-  height: 100px;
-  width: 600px;
-} */
+ .teachersAndMap {
+  background:rgba(37, 36, 36, 0.116);
+  width: 1920px;
+  height: 900px;
+  padding-top: 15px;
+  padding-bottom: 110px;
+  
+} 
 
 .teachers {
-  background: rgba(37, 36, 36, 0.116);
+  /* background: rgba(37, 36, 36, 0.116); */
   float: left;
-  height: 800px;
+  height: 100%;
   width: 550px;
 }
 
 .map {
   
-  height: 800px;
-  width: 885px;
-  float: right;
-  /* display: inline; */
+  height: 850px;
+  width: 65%;
+  float: left;
+  border: 7px solid rgb(73, 166, 226);
+  margin-left: 20px;
+  margin-top: 16px;
+  
 
+}
+@media only screen and (max-width: 1500px) {
+  .map {
+height: 750px;
+  width: 800px;
+  float: left;
+  border: 7px solid rgb(73, 166, 226);
+  margin-left: 20px;
+  margin-top: 16px;  }
+  
+}
+@media only screen and (max-width: 1500px) {
+  .wrapper{
+  overflow: scroll;
+  min-height: 150px;
+  max-height: 750px;
+  }
 }
 
 .HowItWorks h1 {
@@ -363,7 +386,7 @@ border-bottom: 1px solid #ccc;
 padding-left: 10px;
 padding-right: 10px;
 padding-top: 35px;
-padding-bottom: 20px; 
+padding-bottom: 100px; 
 color: #FFF;
 background: #555;
 border-top: solid 1px #252525;
@@ -372,8 +395,91 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);
 }
 
 .textpicturewrapper{
-  height: 100%;
-  width: 100%;
-
   
+	position:absolute;
+	top:27%;
+	left:0%;
+	right:60%;
+	bottom:10px;
+	overflow:auto;
+  
+}
+.formCss{
+	position:absolute;
+	top:40%;
+	left:0;
+	right:60%;
+	bottom:10px;
+  overflow:auto;
+}
+
+
+.availability {
+  border: solid
+}
+.wrapper{
+  overflow: scroll;
+  min-height: 150px;
+  max-height: 800px;
+
+}
+
+.tableContainer {
+ width: 800px;
+  margin-left: 30%;
+}
+.myLessons {
+  width: 1000px;
+  margin-left: 25%;
+}
+@media only screen and (max-width: 1500px) {
+.tableContainer {
+ width: 800px;
+  margin-left: 25%;
+}
+.myLessons {
+  width: 1000px;
+  margin-left: 15%;
+}
+}
+
+.previousButton{
+  margin-right: 300px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color:rgb(73, 166, 226);
+  border: solid 1px black;
+}
+
+.nextButton{
+  font-size: 16px;
+  border-radius: 5px;
+  background-color:rgb(73, 166, 226);
+  border: solid 1px black;
+
+}
+.lessonWrapper{
+background-color: rgb(245, 245, 245);
+}
+.lessonWrapper h1{
+  padding-top: 20px;
+  margin-top: 0px; 
+  color:black;
+  font-family: 'Lato', 'Open Sans', sans-serif;
+
+}
+
+.availabilitiesWrapper{
+background-color: rgb(245, 245, 245);
+height: 100%;
+padding-bottom:30%; 
+}
+.availabilitiesWrapper h1{
+  padding-top: 20px;
+  margin-top: 0px; 
+  color:black;
+  font-family: 'Lato', 'Open Sans', sans-serif;
+}
+.availabilitiesContainer h1{
+font-family: 'Lato', 'Open Sans', sans-serif;
 }

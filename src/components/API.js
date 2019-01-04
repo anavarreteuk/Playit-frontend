@@ -1,4 +1,5 @@
 class API {
+
     static login(user) {
        return fetch('http://localhost:3000/api/v1/signin', {
             method: 'POST',
@@ -25,6 +26,13 @@ class API {
                 'Authorization': localStorage.getItem('token')
             },
         }).then(resp => resp.json())
+    }
+
+    static availabilities(id,date) {
+        return fetch(`http://localhost:3000/api/v1/teachers/${id}/availabilities/${date}`, {
+        method: 'GET',
+        headers: { 'Content-type': 'application/json' },
+     }).then(resp => resp.json())
     }
 
 }

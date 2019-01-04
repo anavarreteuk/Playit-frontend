@@ -16,8 +16,8 @@ class Login extends Component {
   handleSubmit = () => {
     const user = this.state;
     API.signup(user).then(data => {
-    this.props.login(data);
-    this.props.history.push("/");
+    this.props.login(data)
+    this.props.history.push("/")
     });
   };
 

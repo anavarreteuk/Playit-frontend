@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+
 import Button from "@material-ui/core/Button";
 import "../App.css";
 
@@ -25,14 +25,12 @@ class NavBar extends Component {
             <Button>Log In</Button>
           </NavLink>}
       {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/lessons">
-            <Button>Lessons</Button>
+            <Button onClick={this.props.studentCall}>My Lessons</Button>
           </NavLink> : ""}
       {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/cart">
-            <Button>
-              <ShoppingCartIcon />
-              Cart
-            </Button>
+        <Button onClick={this.props.studentCall}>Cart</Button>
       </NavLink> : ""}
+          
         {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/teachers">
             <Button>Teachers</Button>
           </NavLink> : ""}
