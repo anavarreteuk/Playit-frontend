@@ -93,9 +93,9 @@ class App extends Component {
           <Route exact path="/" component={routerProps => <Main test={this.state.searchValue} handleSubmit={this.handleSubmit} handleSearch={this.handleSearch} handleCardValue={this.handleCardValue} {...routerProps} />} />
           <Route exact path="/teachers" component={routerProps => <Teachers callAvailabilities={this.callAvailabilities} handleClick={this.handleClick} cardValue={this.state.cardValue} teachers={this.state.teachers} {...routerProps} />} />
           <Route exact path="/lessons" component={routerProps => <Lessons studentLessons={this.state.student_login} username={this.state.username} studentCall={this.studentCall} {...routerProps} />} />
-          <Route exact path="/cart" component={Cart} />
-        <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities studentId={this.state.userId} availableState={this.state.availabilities} callAvailabilities={this.callAvailabilities} {...routerProps} />} />
-          <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availability  {...routerProps} />} />
+          <Route exact path="/cart" component={routerProps => <Cart studentLessons={this.state.student_login} {...routerProps} />} />
+          <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities studentId={this.state.userId} availableState={this.state.availabilities} callAvailabilities={this.callAvailabilities} {...routerProps} />} />
+          <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availability {...routerProps} />} />
           <Route component={() => <h1>Page not found</h1>} />
         </Switch>
         <ScrollUpButton />

@@ -11,7 +11,8 @@ import Paper from '@material-ui/core/Paper';
 class LessonTable extends React.Component {
 
     render() {
-
+      
+       console.log(this.props.studentLessons.lessons)
         const { classes } = this.props;
         return <Paper className={classes.root}>
             <Table className={classes.table}>
