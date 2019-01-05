@@ -37,8 +37,8 @@ class Teachers extends Component {
     var regex = new RegExp(this.state.inputValue, "ig");
 
     return allTeachers.filter(teacher =>
-      teacher.instruments.find(instrument => instrument.name.match(regex))
-    );
+      teacher.instrument.name.match(regex))
+    ;
   };
 
   render() {

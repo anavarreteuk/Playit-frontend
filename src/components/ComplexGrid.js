@@ -49,7 +49,7 @@ function ComplexGrid(props) {
                     {props.teacherObj.username}
                   </Typography>
                   <Typography gutterBottom>
-                    {props.teacherObj.instruments.map(ins => ins.name)}
+                    {props.teacherObj.instrument.name}
                   </Typography>
                   <Typography color="textSecondary">
                     {props.teacherObj.location}

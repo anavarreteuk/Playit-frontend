@@ -34,6 +34,13 @@ class API {
         headers: { 'Content-type': 'application/json' },
      }).then(resp => resp.json())
     }
+    static destroyer (id) {
+       return fetch(`http://localhost:3000/api/v1/lessons/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })}
 
 }
 export default API

@@ -18,6 +18,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
+import API from "./API";
 
 let counter = 0;
 function createData(name, calories, fat, carbs, protein) {
@@ -143,44 +144,36 @@ const toolbarStyles = theme => ({
   },
 });
 
-let EnhancedTableToolbar = props => {
-  const { numSelected, classes } = props;
+const printdeletearray = (selectedId) => {
+  selectedId.map(value => API.destroyer(value))
+};
 
-  return (
-    <Toolbar
-      className={classNames(classes.root, {
-        [classes.highlight]: numSelected > 0,
-      })}
-    >
+let EnhancedTableToolbar = props => {
+  const { numSelected, classes, selectedId } = props;
+
+  return <Toolbar className={classNames(classes.root, {
+        [classes.highlight]: numSelected > 0
+      })}>
       <div className={classes.title}>
-        {numSelected > 0 ? (
-          <Typography color="inherit" variant="subtitle1">
+        {numSelected > 0 ? <Typography color="inherit" variant="subtitle1">
             {numSelected} selected
-          </Typography>
-        ) : (
-            <Typography variant="h6" id="tableTitle">
-              My lessons
-          </Typography>
-          )}
+          </Typography> : <Typography variant="h6" id="tableTitle">
+            My lessons
+          </Typography>}
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
+        {numSelected > 0 ? <Tooltip title="Delete">
             <IconButton aria-label="Delete">
-              <DeleteIcon onClick={()=>props.deleter()}/>
+              <DeleteIcon onClick={() => printdeletearray(selectedId)} />
             </IconButton>
-          </Tooltip>
-        ) : (
-            <Tooltip title="Filter list">
-              <IconButton aria-label="Filter list">
-                <FilterListIcon />
-              </IconButton>
-            </Tooltip>
-          )}
+          </Tooltip> : <Tooltip title="Filter list">
+            <IconButton aria-label="Filter list">
+              <FilterListIcon />
+            </IconButton>
+          </Tooltip>}
       </div>
-    </Toolbar>
-  );
+    </Toolbar>;
 };
 
 EnhancedTableToolbar.propTypes = {
@@ -291,7 +284,8 @@ class EnhancedTable extends React.Component {
 
     return (
       <Paper className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} 
+          selectedId={selected} />
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead
