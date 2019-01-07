@@ -18,7 +18,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
-import API from "./API";
 
 let counter = 0;
 function createData(name, calories, fat, carbs, protein) {
@@ -163,7 +162,7 @@ class EnhancedTableToolbar extends React.Component {
   //   // this.props.studentCall()//.then(this.setState({ test: this.props.studentLessons.lessons }))
   // }
   render(){
-    const { numSelected, classes, selectedId,studentCall } = this.props;
+    const { numSelected, classes, selectedId } = this.props;
     const printdeletearray = (selectedId) => {
       selectedId.map(value => this.destroyer(value))
       
@@ -305,7 +304,7 @@ class EnhancedTable extends React.Component {
   
   render() {
     const { classes } = this.props;
-    const { test ,data, order, orderBy, selected, rowsPerPage, page } = this.state;
+    const { test, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, test.length - page * rowsPerPage);
 
     return (
