@@ -42,9 +42,7 @@ class SimpleSelect extends Component {
     lat:'',
     price_hour:'',
     location:'',
-      age: '',
-      name: 'hai',
-      labelWidth: 0,
+    labelWidth: 0,
   };
 
   handleSubmit = () => {
@@ -59,7 +57,7 @@ class SimpleSelect extends Component {
 
   render() {
       const { classes } = this.props;
-      const { username, email, image, instrument_id, lng,lat, price_hour,location } = this.state;
+      const { username, email, image,lng,lat, price_hour,location } = this.state;
     const { handleChange, handleSubmit } = this;
     return (
       <div className="userSignIn">
@@ -85,6 +83,7 @@ class SimpleSelect extends Component {
             <br></br>
         <form  className={classes.root} autoComplete="on">
             <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="filled-age-simple">Instrument</InputLabel>
                 <Select
                     value={this.state.instrument_id}
                     onChange={this.handleChange}
@@ -151,7 +150,7 @@ class SimpleSelect extends Component {
 
             />
             <br />
-
+            <br/>   
 
         <Button onClick={handleSubmit} variant="contained" color="primary">
           SUBMIT
