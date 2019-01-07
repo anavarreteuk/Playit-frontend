@@ -299,9 +299,8 @@ class EnhancedTable extends React.Component {
       .then(resp => resp.json())
       .then(data => 
         this.setState({ test: [...data.lessons] }))
-      
-
-    // this.props.studentCall()//.then(this.setState({ test: this.props.studentLessons.lessons }))
+      .then(this.setState({ selected: [] }))
+// this.props.studentCall()//.then(this.setState({ test: this.props.studentLessons.lessons }))
   }
    componentDidMount() { this.prueba()}
   
