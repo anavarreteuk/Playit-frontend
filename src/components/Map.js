@@ -5,23 +5,10 @@ import TeacherMarker from "./TeacherMarker";
 import Geocode from "react-geocode";
 Geocode.setApiKey("AIzaSyCRl6PvNq6l719iUq3re55GHN8aED14a_k");
 
-const getLocations = (props) => {
-  props.teachers.map( teacher =>
-Geocode.fromAddress(teacher.location).then(
-    response => {
-        const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
-    },
-    error => {
-        console.error(error);
-    }
-))
-}
-
-
-
 const Map = withScriptjs(withGoogleMap((props) => {
+ const state={
 
+ }
     
     const markers = props.teachers.map( teacher => <TeacherMarker
         key={teacher.id}
@@ -31,11 +18,15 @@ const Map = withScriptjs(withGoogleMap((props) => {
         location={ 
             Geocode.fromAddress(teacher.location).then(
                 response => {
-                   const {lat,lng} = response.results[0].geometry.location
-                    return { lat: lat, lng: lng }
                     
-                })
+                   const {lat,lng} = response.results[0].geometry.location
+                    return console.log({ lat, lng })
+                    
+                }
+                )
         }
+        
+
     />)
     
 
