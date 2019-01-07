@@ -6,9 +6,6 @@ import Geocode from "react-geocode";
 Geocode.setApiKey("AIzaSyCRl6PvNq6l719iUq3re55GHN8aED14a_k");
 
 const Map = withScriptjs(withGoogleMap((props) => {
- const state={
-
- }
     
     const markers = props.teachers.map( teacher => <TeacherMarker
         key={teacher.id}
@@ -20,7 +17,7 @@ const Map = withScriptjs(withGoogleMap((props) => {
                 response => {
                     
                    const {lat,lng} = response.results[0].geometry.location
-                    return console.log({ lat, lng })
+                    return (console.log({lat: lat, lng: lng}) )
                     
                 }
                 )
