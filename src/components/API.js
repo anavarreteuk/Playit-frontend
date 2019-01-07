@@ -40,7 +40,8 @@ class API {
             headers: {
                 'Content-Type': 'application/json'
             }
-        })}
+       })
+    }
 
 }
 export default API

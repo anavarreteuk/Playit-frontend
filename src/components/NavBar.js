@@ -28,7 +28,8 @@ class NavBar extends Component {
             <Button onClick={this.props.studentCall}>My Lessons</Button>
           </NavLink> : ""}
       {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/cart">
-        <Button onClick={this.props.studentCall}>Cart</Button>
+        <Button //onClick={this.props.studentCall}
+        >Cart</Button>
       </NavLink> : ""}
           
         {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/teachers">
