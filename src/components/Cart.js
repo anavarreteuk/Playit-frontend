@@ -295,10 +295,9 @@ class EnhancedTable extends React.Component {
   isSelected = id => this.state.selected.indexOf(id) !== -1;
 
   prueba = () => {
-    return fetch(`http://localhost:3000/api/v1/students/${10}`)
+    return fetch(`http://localhost:3000/api/v1/students/${this.props.studentId}`)
       .then(resp => resp.json())
-      .then(data => 
-        this.setState({ test: [...data.lessons] }))
+      .then(data => this.setState({ test: [...data.lessons] }))
       .then(this.setState({ selected: [] }))
 // this.props.studentCall()//.then(this.setState({ test: this.props.studentLessons.lessons }))
   }
@@ -312,9 +311,8 @@ class EnhancedTable extends React.Component {
     return (
       
       <Paper className={classes.root}>
-      <button onClick={()=>this.prueba()}></button>
         <EnhancedTableToolbar numSelected={selected.length} 
-          selectedId={selected} history={this.props.history} studentCall={this.props.studentCall} prueba={this.prueba} />
+          selectedId={selected} history={this.props.history} studentCall={this.props.studentCall} studentId={this.props.studentId} prueba={this.prueba} />
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead

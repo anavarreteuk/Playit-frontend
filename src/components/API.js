@@ -15,6 +15,23 @@ class API {
             body: JSON.stringify(user)
         }).then(resp => resp.json())
     }
+    static signupteacher(teacher) {
+        console.log(teacher)
+        return fetch("http://localhost:3000/api/v1/teachers", {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify({
+            username: teacher.username,
+            email: teacher.email,
+            image: teacher.image,
+            instrument_id: Number(teacher.instrument_id),
+            lng: Number(teacher.lng),
+            lat: Number(teacher.lat),
+            price_hour: Number(teacher.price_hour),
+            location: teacher.location
+          })
+        }).then(resp => resp.json());
+    }
 
     static validate() {
         return this.get('http://localhost:3000/api/v1/validate')
