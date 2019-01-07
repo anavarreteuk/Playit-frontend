@@ -2,12 +2,40 @@ import React from "react";
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import TeacherMarker from "./TeacherMarker";
 
+import Geocode from "react-geocode";
+Geocode.setApiKey("AIzaSyCRl6PvNq6l719iUq3re55GHN8aED14a_k");
+
+const getLocations = (props) => {
+  props.teachers.map( teacher =>
+Geocode.fromAddress(teacher.location).then(
+    response => {
+        const { lat, lng } = response.results[0].geometry.location;
+        console.log(lat, lng);
+    },
+    error => {
+        console.error(error);
+    }
+))
+}
+
+
+
 const Map = withScriptjs(withGoogleMap((props) => {
+
     
     const markers = props.teachers.map( teacher => <TeacherMarker
         key={teacher.id}
         teacher={teacher}
-        location={{ lat: parseFloat(teacher.lat), lng: parseFloat(teacher.lng) }}
+
+        
+        location={ 
+            Geocode.fromAddress(teacher.location).then(
+                response => {
+                   const {lat,lng} = response.results[0].geometry.location
+                    return { lat: lat, lng: lng }
+                    
+                })
+        }
     />)
     
 
