@@ -14,7 +14,8 @@ import {Switch, Route,withRouter} from 'react-router-dom'
 import './App.css'
 import Lessons from './components/Lessons.js';
 import Cart from './components/Cart.js';
-
+import Geocode from "react-geocode";
+Geocode.setApiKey("AIzaSyCRl6PvNq6l719iUq3re55GHN8aED14a_k");
 
 
 
@@ -63,7 +64,7 @@ class App extends Component {
           teachers: [...data]
         })
       })
-    
+    this.geo()
     }
    
 
@@ -105,7 +106,23 @@ class App extends Component {
   
 
 
+
+ geo = () => {
+  let addresses = ['26 morden road sw193bj london', 'Africa', 'Asia', 'North America', 'South America'];
+
+  for (var x = 0; x < addresses.length; x++) {
+    fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + addresses[x] + '&key=AIzaSyCRl6PvNq6l719iUq3re55GHN8aED14a_k', null, (data) => {
+      var p = data.results[0].geometry.location
+      var latlng = (p.lat, p.lng);
+      return console.log({latlng})
+
+  });
+  }
+}
+
+
   render() {
+    console.log(this.geo())
     return <div className="App">
         <NavBar studentCall={this.studentCall} signout={this.signout} username={this.state.username} />
         <Switch>

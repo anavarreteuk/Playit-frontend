@@ -12,16 +12,7 @@ const Map = withScriptjs(withGoogleMap((props) => {
         teacher={teacher}
 
         
-        location={ 
-            Geocode.fromAddress(teacher.location).then(
-                response => {
-                    
-                   const {lat,lng} = response.results[0].geometry.location
-                    return (console.log({lat: lat, lng: lng}) )
-                    
-                }
-                )
-        }
+        location={{lat:props.lat, lng:props.lng}}
         
 
     />)
