@@ -63,9 +63,22 @@ class App extends Component {
           teachers: [...data]
         })
       })
+      this.getLocation()
+
+   
     
     }
-   
+  getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.showPosition);
+    } else {
+    }
+  }
+  showPosition = (position) => {
+      let lat= parseFloat(position.coords.latitude)
+      let lng= parseFloat(position.coords.longitude)
+      this.setState( { geolocation:[{latitude: lat, longitude: lng}]})
+  }
 
   fetchTeacher = () => {
     return fetch("http://localhost:3000/api/v1/teachers")
@@ -114,7 +127,7 @@ class App extends Component {
           <Route exact path="/sign" component={routerProps => <SignUp signin={this.signin} login={this.login} {...routerProps} />} />
           <Route exact path="/login" component={routerProps => <LogIn login={this.login} {...routerProps} />} />
           <Route exact path="/" component={routerProps => <Main test={this.state.searchValue} handleSubmit={this.handleSubmit} handleSearch={this.handleSearch} handleCardValue={this.handleCardValue} {...routerProps} />} />
-        <Route exact path="/teachers" component={routerProps => <Teachers fetchteacher={this.fetchTeacher} callAvailabilities={this.callAvailabilities} handleClick={this.handleClick} cardValue={this.state.cardValue} teachers={this.state.teachers} {...routerProps} />} />
+        <Route exact path="/teachers" component={routerProps => <Teachers geolocation={this.state.geolocation} fetchteacher={this.fetchTeacher} callAvailabilities={this.callAvailabilities} handleClick={this.handleClick} cardValue={this.state.cardValue} teachers={this.state.teachers} {...routerProps} />} />
           <Route exact path="/lessons" component={routerProps => <Lessons studentLessons={this.state.student_login} username={this.state.username} studentCall={this.studentCall} {...routerProps} />} />
           <Route exact path="/cart" component={routerProps => <Cart studentId={this.state.userId} studentCall={this.studentCall} studentLessons={this.state.student_login} {...routerProps} />} />
           <Route exact path="/teachers/:id/availabilities/:date" component={routerProps => <Availabilities studentId={this.state.userId} availableState={this.state.availabilities} callAvailabilities={this.callAvailabilities} {...routerProps} />} />

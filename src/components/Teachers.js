@@ -63,7 +63,7 @@ class Teachers extends Component {
           </div>
         </div>
         <div className="map">
-          <MapContainer teachers={this.filteredTeachers()} />
+          <MapContainer geolocation={this.props.geolocation} teachers={this.filteredTeachers()} />
         </div>
       </div>;
   }

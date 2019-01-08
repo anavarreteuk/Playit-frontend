@@ -16,7 +16,7 @@ class API {
         }).then(resp => resp.json())
     }
     static signupteacher(teacher) {
-        console.log(teacher)
+        
         return fetch("http://localhost:3000/api/v1/teachers", {
           method: "POST",
           headers: { "Content-type": "application/json" },
@@ -25,8 +25,6 @@ class API {
             email: teacher.email,
             image: teacher.image,
             instrument_id: Number(teacher.instrument_id),
-            lng: Number(teacher.lng),
-            lat: Number(teacher.lat),
             price_hour: Number(teacher.price_hour),
             location: teacher.location
           })

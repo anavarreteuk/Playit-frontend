@@ -38,8 +38,6 @@ class SimpleSelect extends Component {
     email: "",
     image: "",
     instrument_id:'',
-    lng:'',
-    lat:'',
     price_hour:'',
     location:'',
     labelWidth: 0,
@@ -57,7 +55,7 @@ class SimpleSelect extends Component {
 
   render() {
       const { classes } = this.props;
-      const { username, email, image,lng,lat, price_hour,location } = this.state;
+      const { username, email, image, price_hour,location } = this.state;
     const { handleChange, handleSubmit } = this;
     return (
       <div className="userSignIn">
@@ -107,27 +105,8 @@ class SimpleSelect extends Component {
           name="image"
         />
         <br />
-            <TextField
-                id="lngInput"
-                label="lng"
-                value={lng}
-                onChange={handleChange}
-                margin="normal"
-                name="lng"
-
-            />
-            <br />
-            <br />
-            <TextField
-                id="latInput"
-                label="lat"
-                value={lat}
-                onChange={handleChange}
-                margin="normal"
-                name="lat"
-
-            />
-            <br />
+            
+            
             <br />
             <TextField
                 id="pricehourInput"
