@@ -10,9 +10,10 @@ const Map = withScriptjs(withGoogleMap((props) => {
         teacher={teacher}
         location={{ lat: parseFloat(teacher.latitude), lng: parseFloat(teacher.longitude) }}
     />)
-    const myMarker = props.geolocation.map(value => <MyMarker
+    
+    const myMarker = props.geolocation.map((value,index) => <MyMarker
         
-        
+        key={index}
         location={{ lat: value.latitude, lng: value.longitude }}
     />)
     

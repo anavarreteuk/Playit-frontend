@@ -22,7 +22,7 @@ class App extends Component {
   state = {
     username: '',
     userId:'',
-    teachers: [],
+    teachers: '',
     cardValue:'',
     searchValue:'',
     availabilities: [],
