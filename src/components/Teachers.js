@@ -37,8 +37,8 @@ class Teachers extends Component {
     var regex = new RegExp(this.state.inputValue, "ig");
 
     return allTeachers.filter(teacher =>
-      teacher.instruments.find(instrument => instrument.name.match(regex))
-    );
+      teacher.instrument.name.match(regex))
+    ;
   };
 
   render() {
@@ -63,7 +63,7 @@ class Teachers extends Component {
           </div>
         </div>
         <div className="map">
-          <MapContainer teachers={this.filteredTeachers()} />
+          <MapContainer geolocation={this.props.geolocation} teachers={this.filteredTeachers()} />
         </div>
       </div>;
   }

@@ -63,12 +63,9 @@ class EnhancedTableHead extends React.Component {
   };
 
   render() {
-
-
+  
     const { onSelectAllClick, order, orderBy, numSelected, rowCount } = this.props;
-      // console.log(this.props.studentLessons.lessons.length)
    
-
     return (
       <TableHead>
         <TableRow>
@@ -143,45 +140,62 @@ const toolbarStyles = theme => ({
   },
 });
 
-let EnhancedTableToolbar = props => {
-  const { numSelected, classes } = props;
 
-  return (
-    <Toolbar
-      className={classNames(classes.root, {
-        [classes.highlight]: numSelected > 0,
-      })}
-    >
+
+class EnhancedTableToolbar extends React.Component {
+  destroyer =(id)=> {
+    return fetch(`http://localhost:3000/api/v1/lessons/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(resp => resp.json())
+    .then(()=>this.props.prueba())
+    
+  }
+  // fama = () => {
+  //   return fetch(`http://localhost:3000/api/v1/students/10`)
+  //     .then(resp => resp.json())
+  //     .then(data =>{this.setState({ test: [...data.lessons] })})
+
+
+  //   // this.props.studentCall()//.then(this.setState({ test: this.props.studentLessons.lessons }))
+  // }
+  render(){
+    const { numSelected, classes, selectedId } = this.props;
+    const printdeletearray = (selectedId) => {
+      selectedId.map(value => this.destroyer(value))
+      
+      
+      
+
+    };
+  return <Toolbar className={classNames(classes.root, {
+        [classes.highlight]: numSelected > 0
+      })}>
       <div className={classes.title}>
-        {numSelected > 0 ? (
-          <Typography color="inherit" variant="subtitle1">
+        {numSelected > 0 ? <Typography color="inherit" variant="subtitle1">
             {numSelected} selected
-          </Typography>
-        ) : (
-            <Typography variant="h6" id="tableTitle">
-              My lessons
-          </Typography>
-          )}
+          </Typography> : <Typography variant="h6" id="tableTitle">
+          My lessons                      
+
+          </Typography>}
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
+        {numSelected > 0 ? <Tooltip title="Delete">
             <IconButton aria-label="Delete">
-              <DeleteIcon onClick={()=>props.deleter()}/>
+              <DeleteIcon onClick={() => printdeletearray(selectedId)} />
             </IconButton>
-          </Tooltip>
-        ) : (
-            <Tooltip title="Filter list">
-              <IconButton aria-label="Filter list">
-                <FilterListIcon />
-              </IconButton>
-            </Tooltip>
-          )}
+          </Tooltip> : <Tooltip title="Filter list">
+            <IconButton aria-label="Filter list">
+              <FilterListIcon />
+            </IconButton>
+          </Tooltip>}
       </div>
-    </Toolbar>
-  );
+    </Toolbar>;
 };
+}
 
 EnhancedTableToolbar.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -208,6 +222,7 @@ class EnhancedTable extends React.Component {
     order: 'asc',
     orderBy: 'date',
     selected: [],
+    loaded:false,
     data: [
       createData('Cupcake', 305, 3.7, 67, 4.3),
       createData('Donut', 452, 25.0, 51, 4.9),
@@ -227,10 +242,7 @@ class EnhancedTable extends React.Component {
     page: 0,
     rowsPerPage: 5,
   };
-
-  deleter =()=>{console.log(this.state.selected)}
   
-
   handleRequestSort = (event, property) => {
     const orderBy = property;
     let order = 'desc';
@@ -281,17 +293,25 @@ class EnhancedTable extends React.Component {
 
   isSelected = id => this.state.selected.indexOf(id) !== -1;
 
-  prueba =() =>{ this.setState({ test: this.props.studentLessons.lessons }) }
-
-  componentDidMount(){ this.prueba()}
+  prueba = () => {
+    return fetch(`http://localhost:3000/api/v1/students/${this.props.studentId}`)
+      .then(resp => resp.json())
+      .then(data => this.setState({ test: [...data.lessons] }))
+      .then(this.setState({ selected: [] }))
+// this.props.studentCall()//.then(this.setState({ test: this.props.studentLessons.lessons }))
+  }
+   componentDidMount() { this.prueba()}
+  
   render() {
     const { classes } = this.props;
-    const { test ,data, order, orderBy, selected, rowsPerPage, page } = this.state;
+    const { test, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, test.length - page * rowsPerPage);
 
     return (
+      
       <Paper className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} 
+          selectedId={selected} history={this.props.history} studentCall={this.props.studentCall} studentId={this.props.studentId} prueba={this.prueba} />
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead
@@ -323,6 +343,7 @@ class EnhancedTable extends React.Component {
                       <TableCell component="th" scope="row" padding="none">
                         {n.date}
                       </TableCell>
+
                       <TableCell align="right">{n.availability.time}</TableCell>
                       <TableCell align="right">{n.availability.duration}</TableCell>
                       <TableCell align="right">{n.teacher.username}</TableCell>

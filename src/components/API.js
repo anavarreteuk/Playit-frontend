@@ -15,6 +15,21 @@ class API {
             body: JSON.stringify(user)
         }).then(resp => resp.json())
     }
+    static signupteacher(teacher) {
+        
+        return fetch("http://localhost:3000/api/v1/teachers", {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify({
+            username: teacher.username,
+            email: teacher.email,
+            image: teacher.image,
+            instrument_id: Number(teacher.instrument_id),
+            price_hour: Number(teacher.price_hour),
+            location: teacher.location
+          })
+        }).then(resp => resp.json());
+    }
 
     static validate() {
         return this.get('http://localhost:3000/api/v1/validate')
@@ -33,6 +48,14 @@ class API {
         method: 'GET',
         headers: { 'Content-type': 'application/json' },
      }).then(resp => resp.json())
+    }
+    static destroyer (id) {
+       return fetch(`http://localhost:3000/api/v1/lessons/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+       })
     }
 
 }
