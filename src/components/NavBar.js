@@ -9,7 +9,7 @@ class NavBar extends Component {
   render() {
     return <div className="NavBar">
       <NavLink style={{ textDecoration: "none" }} to="/">
-          <img id="logo" src={"./logo.png"} alt="logo" />
+          <img id="logo" src={"./logo4.png"} alt="logo" />
       </NavLink>
         {this.props.username ? <Button>
             Hello, {this.props.username}
@@ -24,13 +24,10 @@ class NavBar extends Component {
       {this.props.username ? "" : <NavLink style={{ textDecoration: "none" }} to="/login">
             <Button>Log In</Button>
           </NavLink>}
-      {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/lessons">
+      {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/cart">
             <Button onClick={this.props.studentCall}>My Lessons</Button>
           </NavLink> : ""}
-      {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/cart">
-        <Button //onClick={this.props.studentCall}
-        >Cart</Button>
-      </NavLink> : ""}
+     
           
         {this.props.username ? <NavLink style={{ textDecoration: "none" }} to="/teachers">
             <Button>Teachers</Button>

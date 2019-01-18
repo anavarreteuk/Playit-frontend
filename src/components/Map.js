@@ -4,7 +4,6 @@ import TeacherMarker from "./TeacherMarker";
 import MyMarker from "./MyMarker"
 
 const Map = withScriptjs(withGoogleMap((props) => {
-    console.log(props)
     const markers = props.teachers.map( teacher => <TeacherMarker
         key={teacher.id}
         teacher={teacher}

@@ -14,7 +14,7 @@ import {Switch, Route,withRouter} from 'react-router-dom'
 import './App.css'
 import Lessons from './components/Lessons.js';
 import Cart from './components/Cart.js';
-
+import geolib from 'geolib';
 
 
 
@@ -31,8 +31,17 @@ class App extends Component {
 
   };
 
+  
+getdistance = () => {
+  return geolib.getDistance(
+    { latitude: 51.414235399999995, longitude: -0.1927266 },
+    { latitude: 51.4153, longitude: -0.1920 }
+  );
+}
+
   callAvailabilities = (data) => {
     this.setState({ availabilities: [...data]})
+    
   }
 
   login = student => { 
@@ -71,6 +80,7 @@ class App extends Component {
   getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
+      console.log(this.getdistance());
     } else {
     }
   }
@@ -111,7 +121,7 @@ class App extends Component {
     date = today.getDate() + '' + (today.getMonth() + 1) + '' + today.getFullYear();
   return date}
   
-  handleClick = (id) => { this.props.history.push(`/teachers/${id}/availabilities/31122018`)}
+  handleClick = (id) => { this.props.history.push(`/teachers/${id}/availabilities/21012019`)}
   handleCardValue = (event) => { this.setState({ cardValue: event.target.id }); this.props.history.push('/teachers')}
   handleSearch = (event) => { this.setState({ searchValue: event.target.value }) }
   handleSubmit = () => { this.setState({cardValue:this.state.searchValue}); this.setState({searchValue:''});this.props.history.push('/teachers')}

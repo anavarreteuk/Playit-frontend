@@ -308,6 +308,7 @@ class EnhancedTable extends React.Component {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, test.length - page * rowsPerPage);
 
     return (
+      <div>
       
       <Paper className={classes.root}>
         <EnhancedTableToolbar numSelected={selected.length} 
@@ -375,7 +376,9 @@ class EnhancedTable extends React.Component {
           onChangeRowsPerPage={this.handleChangeRowsPerPage}
         />
       </Paper>
+      </div>
     );
+    
   }
 }
 
