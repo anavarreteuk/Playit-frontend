@@ -426,22 +426,33 @@ border-bottom: 1px solid #ccc;
   }
   .Schedule {
     height: 100%;
+    padding-left: 5px;
+  }
+  .Schedule h3 {
+    width: 340px;
   }
   .SearchTeacher {
     height: 100%;
   }
+  .SearchTeacher h3{
+    width: 340px;
+  }
   .teacherText {
     height: 100%;
+    padding-left: 5px;
   }
   #navless{
   display: none
 }
-#name {
+  #name {
   display: none
 }
 
 .teacherText h3 {
-  width: 300px;
+  width: 340px;
+}
+.SearchTeacher {
+  padding-left: 5px;
 }
 
 }
