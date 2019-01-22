@@ -192,10 +192,11 @@ background-color: rgba(104, 174, 224, 0.452)}
 
  .teachersAndMap {
   background:rgba(37, 36, 36, 0.116);
-  width: 1920px;
-  height: 900px;
-  padding-top: 15px;
-  padding-bottom: 110px;
+  width: 1500px;
+  height: 850px;
+  padding-top: 15px
+  /* padding-top: 15px;
+  padding-bottom: 110px; */
   
 } 
 
@@ -208,9 +209,9 @@ background-color: rgba(104, 174, 224, 0.452)}
 
 .map {
   
-  height: 850px;
-  width: 65%;
-  float: left;
+  height: 100%;
+  width: 100%;
+  float: right;
   border: 7px solid rgb(73, 166, 226);
   margin-left: 20px;
   margin-top: 16px;
@@ -225,14 +226,56 @@ height: 750px;
   border: 7px solid rgb(73, 166, 226);
   margin-left: 20px;
   margin-top: 16px;  }
-  
-}
-@media only screen and (max-width: 1500px) {
   .wrapper{
   overflow: scroll;
   min-height: 150px;
   max-height: 750px;
   }
+  
+}
+@media only screen and (max-width: 950px) {
+    .map {
+height: 450px;
+  width: 450px;
+  float: left;
+  border: 7px solid rgb(73, 166, 226);
+   }
+   .teachersAndMap{
+     width: 1000px;
+     height: 500px;
+   }
+  .wrapper{
+  overflow: scroll;
+  min-height: 150px;
+  max-height: 400px !important;
+  }
+  .teachers {
+    width: 450px;
+  }
+  
+}
+@media only screen and (max-width: 450px) {
+    .map {
+height: 450px;
+  width: 350px;
+  float: left;
+  border: 7px solid rgb(73, 166, 226);
+   }
+  .wrapper{
+  overflow: scroll;
+  min-height: 150px;
+  max-height: 150px;
+  }
+  .teachers {
+    width: 350px;
+    height: 200px;
+  }
+  .teachersAndMap{
+    width: 800px;
+    height: 500px;
+
+  }
+  
 }
 
 .HowItWorks h1 {
