@@ -1,7 +1,7 @@
 class API {
 
     static login(user) {
-       return fetch('http://localhost:3000/api/v1/signin', {
+        return fetch('https://salty-hamlet-89842.herokuapp.com/api/v1/signin', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(user)
@@ -9,15 +9,17 @@ class API {
     }
 
     static signup(user) {
-        return fetch('http://localhost:3000/api/v1/signup', {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+        return fetch("https://salty-hamlet-89842.herokuapp.com/api/v1/signup",
+          {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
             body: JSON.stringify(user)
-        }).then(resp => resp.json())
+          }
+        ).then(resp => resp.json());
     }
     static signupteacher(teacher) {
         
-        return fetch("http://localhost:3000/api/v1/teachers", {
+        return fetch("https://salty-hamlet-89842.herokuapp.com/api/v1/teachers", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify({
@@ -32,7 +34,7 @@ class API {
     }
 
     static validate() {
-        return this.get('http://localhost:3000/api/v1/validate')
+        return this.get('https://salty-hamlet-89842.herokuapp.com/api/v1/validate')
     }
 
     static get(url) {
@@ -44,13 +46,13 @@ class API {
     }
 
     static availabilities(id,date) {
-        return fetch(`http://localhost:3000/api/v1/teachers/${id}/availabilities/${date}`, {
+        return fetch(`https://salty-hamlet-89842.herokuapp.com/api/v1/teachers/${id}/availabilities/${date}`, {
         method: 'GET',
         headers: { 'Content-type': 'application/json' },
      }).then(resp => resp.json())
     }
     static destroyer (id) {
-       return fetch(`http://localhost:3000/api/v1/lessons/${id}`, {
+       return fetch(`https://salty-hamlet-89842.herokuapp.com/api/v1/lessons/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

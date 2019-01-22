@@ -22,14 +22,14 @@ class SimpleTable extends React.Component {
                     //  console.log(row.teacher_id);
                     //  console.log(this.props.studentIds);
                     return fetch(
-                      "http://localhost:3000/api/v1/lessons",
+                      "https://salty-hamlet-89842.herokuapp.com/api/v1/lessons",
                       {
                         method: "POST",
                         headers: {
                           "Content-type": "application/json"
                         },
                         body: JSON.stringify({
-                            date: this.formattedDate(row),
+                          date: this.formattedDate(row),
                           name: "music class",
                           teacher_id: row.teacher_id,
                           student_id: this.props.studentIds,

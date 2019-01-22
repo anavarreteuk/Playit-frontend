@@ -143,58 +143,67 @@ const toolbarStyles = theme => ({
 
 
 class EnhancedTableToolbar extends React.Component {
-  destroyer =(id)=> {
-    return fetch(`http://localhost:3000/api/v1/lessons/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
+  destroyer = id => {
+    return fetch(
+      `https://salty-hamlet-89842.herokuapp.com/api/v1/lessons/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
       }
-    }).then(resp => resp.json())
-    .then(()=>this.props.prueba())
-    
-  }
+    )
+      .then(resp => resp.json())
+      .then(() => this.props.prueba());
+  };
   // fama = () => {
-  //   return fetch(`http://localhost:3000/api/v1/students/10`)
+  //   return fetch(`https://salty-hamlet-89842.herokuapp.com/api/v1/students/10`)
   //     .then(resp => resp.json())
   //     .then(data =>{this.setState({ test: [...data.lessons] })})
 
-
   //   // this.props.studentCall()//.then(this.setState({ test: this.props.studentLessons.lessons }))
   // }
-  render(){
+  render() {
     const { numSelected, classes, selectedId } = this.props;
-    const printdeletearray = (selectedId) => {
-      selectedId.map(value => this.destroyer(value))
-      
-      
-      
-
+    const printdeletearray = selectedId => {
+      selectedId.map(value => this.destroyer(value));
     };
-  return <Toolbar className={classNames(classes.root, {
-        [classes.highlight]: numSelected > 0
-      })}>
-      <div className={classes.title}>
-        {numSelected > 0 ? <Typography color="inherit" variant="subtitle1">
-            {numSelected} selected
-          </Typography> : <Typography variant="h6" id="tableTitle">
-          My lessons                      
-
-          </Typography>}
-      </div>
-      <div className={classes.spacer} />
-      <div className={classes.actions}>
-        {numSelected > 0 ? <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <DeleteIcon onClick={() => printdeletearray(selectedId)} />
-            </IconButton>
-          </Tooltip> : <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>}
-      </div>
-    </Toolbar>;
-};
+    return (
+      <Toolbar
+        className={classNames(classes.root, {
+          [classes.highlight]: numSelected > 0
+        })}
+      >
+        <div className={classes.title}>
+          {numSelected > 0 ? (
+            <Typography color="inherit" variant="subtitle1">
+              {numSelected} selected
+            </Typography>
+          ) : (
+            <Typography variant="h6" id="tableTitle">
+              My lessons
+            </Typography>
+          )}
+        </div>
+        <div className={classes.spacer} />
+        <div className={classes.actions}>
+          {numSelected > 0 ? (
+            <Tooltip title="Delete">
+              <IconButton aria-label="Delete">
+                <DeleteIcon onClick={() => printdeletearray(selectedId)} />
+              </IconButton>
+            </Tooltip>
+          ) : (
+            <Tooltip title="Filter list">
+              <IconButton aria-label="Filter list">
+                <FilterListIcon />
+              </IconButton>
+            </Tooltip>
+          )}
+        </div>
+      </Toolbar>
+    );
+  }
 }
 
 EnhancedTableToolbar.propTypes = {
@@ -294,13 +303,14 @@ class EnhancedTable extends React.Component {
   isSelected = id => this.state.selected.indexOf(id) !== -1;
 
   prueba = () => {
-    return fetch(`http://localhost:3000/api/v1/students/${this.props.studentId}`)
+    return fetch(`https://salty-hamlet-89842.herokuapp.com/api/v1/students/${this.props.studentId}`)
       .then(resp => resp.json())
       .then(data => this.setState({ test: [...data.lessons] }))
-      .then(this.setState({ selected: [] }))
+      .then(this.setState({ selected: [] }));
 // this.props.studentCall()//.then(this.setState({ test: this.props.studentLessons.lessons }))
   }
    componentDidMount() { this.prueba()}
+   componentWillUnmount() {this.prueba()}
   
   render() {
     const { classes } = this.props;

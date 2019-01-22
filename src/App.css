@@ -380,6 +380,7 @@ text-shadow: rgb(144, 144, 144);
 
 .NavBar  {
 border-bottom: 1px solid #ccc;
+
 }
 
 .footer{
@@ -397,7 +398,7 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);
 .textpicturewrapper{
   
 	position:absolute;
-	top:27%;
+	top:20vh;
 	left:0%;
 	right:60%;
 	bottom:10px;
@@ -484,3 +485,11 @@ padding-bottom:60%;
 font-family: 'Lato', 'Open Sans', sans-serif;
 }
 
+@media screen and (max-width: 890px) {
+  .textpicturewrapper {
+    display: none;
+  }
+  .formCss {
+    display: none;
+  }
+}

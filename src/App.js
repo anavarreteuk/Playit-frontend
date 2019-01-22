@@ -14,7 +14,6 @@ import {Switch, Route,withRouter} from 'react-router-dom'
 import './App.css'
 import Lessons from './components/Lessons.js';
 import Cart from './components/Cart.js';
-import geolib from 'geolib';
 
 
 
@@ -30,14 +29,6 @@ class App extends Component {
     loaded:false
 
   };
-
-  
-getdistance = () => {
-  return geolib.getDistance(
-    { latitude: 51.414235399999995, longitude: -0.1927266 },
-    { latitude: 51.4153, longitude: -0.1920 }
-  );
-}
 
   callAvailabilities = (data) => {
     this.setState({ availabilities: [...data]})
@@ -65,13 +56,11 @@ getdistance = () => {
           // this.props.history.push('/')
         }
       })
-    fetch('http://localhost:3000/api/v1/teachers')
+    fetch("https://salty-hamlet-89842.herokuapp.com/api/v1/teachers")
       .then(resp => resp.json())
       .then(data => {
-        this.setState({
-          teachers: [...data]
-        })
-      })
+        this.setState({ teachers: [...data] });
+      });
       this.getLocation()
 
    
@@ -80,10 +69,8 @@ getdistance = () => {
   getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
-      console.log(this.getdistance());
-    } else {
-    }
   }
+}
   showPosition = (position) => {
       let lat= parseFloat(position.coords.latitude)
       let lng= parseFloat(position.coords.longitude)
@@ -91,11 +78,11 @@ getdistance = () => {
   }
 
   fetchTeacher = () => {
-    return fetch("http://localhost:3000/api/v1/teachers")
+    return fetch("https://salty-hamlet-89842.herokuapp.com/api/v1/teachers")
       .then(resp => resp.json())
       .then(data => {
         this.setState({ teachers: [...data] });
-      })
+      });
   }
 
     componentWillUpdate(){
@@ -108,7 +95,7 @@ getdistance = () => {
     
 
   studentCall =() => {
-  return fetch(`http://localhost:3000/api/v1/students/${this.state.userId}`)
+    return fetch(`https://salty-hamlet-89842.herokuapp.com/api/v1/students/${this.state.userId}`)
       .then(resp => resp.json())
   .then(data => {
     this.setState({

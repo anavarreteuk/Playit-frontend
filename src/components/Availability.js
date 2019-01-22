@@ -5,7 +5,7 @@ export default class Availability extends React.Component {
     postLesson() {
       console.log(this.props)
       console.log(this.props.studentId);
-        return fetch("http://localhost:3000/api/v1/lessons", {
+      return fetch("https://salty-hamlet-89842.herokuapp.com/api/v1/lessons", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify({
