@@ -53,6 +53,7 @@ class Teachers extends Component {
             {this.filteredTeachers().map(teacher => (
               <div className="inditem" key={teacher.id}>
                 <ComplexGrid
+                  geolocation={this.props.geolocation}
                   callAvailabilities={this.props.callAvailabilities}
                   handleClick={this.props.handleClick}
                   key={teacher.id}

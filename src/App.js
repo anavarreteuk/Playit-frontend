@@ -17,7 +17,6 @@ import Cart from './components/Cart.js';
 
 
 
-
 class App extends Component {
   state = {
     username: '',
@@ -33,6 +32,7 @@ class App extends Component {
 
   callAvailabilities = (data) => {
     this.setState({ availabilities: [...data]})
+    
   }
 
   login = student => { 
@@ -56,13 +56,11 @@ class App extends Component {
           // this.props.history.push('/')
         }
       })
-    fetch('http://localhost:3000/api/v1/teachers')
+    fetch("https://salty-hamlet-89842.herokuapp.com/api/v1/teachers")
       .then(resp => resp.json())
       .then(data => {
-        this.setState({
-          teachers: [...data]
-        })
-      })
+        this.setState({ teachers: [...data] });
+      });
       this.getLocation()
 
    
@@ -71,9 +69,8 @@ class App extends Component {
   getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
-    } else {
-    }
   }
+}
   showPosition = (position) => {
       let lat= parseFloat(position.coords.latitude)
       let lng= parseFloat(position.coords.longitude)
@@ -81,11 +78,11 @@ class App extends Component {
   }
 
   fetchTeacher = () => {
-    return fetch("http://localhost:3000/api/v1/teachers")
+    return fetch("https://salty-hamlet-89842.herokuapp.com/api/v1/teachers")
       .then(resp => resp.json())
       .then(data => {
         this.setState({ teachers: [...data] });
-      })
+      });
   }
 
     componentWillUpdate(){
@@ -98,7 +95,7 @@ class App extends Component {
     
 
   studentCall =() => {
-  return fetch(`http://localhost:3000/api/v1/students/${this.state.userId}`)
+    return fetch(`https://salty-hamlet-89842.herokuapp.com/api/v1/students/${this.state.userId}`)
       .then(resp => resp.json())
   .then(data => {
     this.setState({
@@ -111,7 +108,7 @@ class App extends Component {
     date = today.getDate() + '' + (today.getMonth() + 1) + '' + today.getFullYear();
   return date}
   
-  handleClick = (id) => { this.props.history.push(`/teachers/${id}/availabilities/31122018`)}
+  handleClick = (id) => { this.props.history.push(`/teachers/${id}/availabilities/21012019`)}
   handleCardValue = (event) => { this.setState({ cardValue: event.target.id }); this.props.history.push('/teachers')}
   handleSearch = (event) => { this.setState({ searchValue: event.target.value }) }
   handleSubmit = () => { this.setState({cardValue:this.state.searchValue}); this.setState({searchValue:''});this.props.history.push('/teachers')}
