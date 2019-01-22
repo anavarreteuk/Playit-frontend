@@ -2,8 +2,11 @@
   text-align: center;
 }
 #logo {
-  margin-block-start: 10px;
-  margin-inline-end: 600px;
+  display: inline-block;
+  padding: 0.3em;
+  margin: 0.4em 0em 0.4em 1em;
+  
+  cursor: pointer;
   
 }
 #form {
@@ -379,8 +382,86 @@ text-shadow: rgb(144, 144, 144);
 }
 
 .NavBar  {
+  
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-content: center;
+
 border-bottom: 1px solid #ccc;
 
+}
+
+
+@media (min-width: 550px) {
+ 
+  .nav-list li {
+    padding: 0 1em;
+  }
+}
+
+@media (min-width: 650px) {
+  .navBar {
+    padding: 0.5em 3.5em;
+  }
+  .nav-list li {
+    padding: 0 1.5em;
+  }
+}
+
+@media (min-width: 950px) {
+  .navBar {
+    padding: 0.5em 6em;
+  }
+}
+@media (max-width: 415px) {
+  .mapTeacher img {
+     width: 100%; 
+  }
+  .howCalendar img {
+    width: 340px;
+  }
+  .teacherHow img {
+    width: 100%;
+  }
+  .Schedule {
+    height: 100%;
+  }
+  .SearchTeacher {
+    height: 100%;
+  }
+  .teacherText {
+    height: 100%;
+  }
+  #navless{
+  display: none
+}
+#name {
+  display: none
+}
+
+.teacherText h3 {
+  width: 300px;
+}
+
+}
+
+.nav-list {
+  list-style-type: none;
+  text-align: right;
+  display: inline-block;
+  padding: 0;
+  margin: 1em 0;
+  margin-right: 10px;
+}
+.nav-list li {
+  display: inline-block;
+  padding: 0 0.5em;
+}
+
+.nav-list span {
+  color: black;
+  padding-left: 20px;
 }
 
 .footer{
