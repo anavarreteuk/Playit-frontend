@@ -561,23 +561,32 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);
 }
 
 .tableContainer {
- width: 800px;
-  margin-left: 30%;
+padding-left: 200px;
+padding-right: 200px;
+  /* margin-left: 30%; */
 }
-.myLessons {
-  width: 1000px;
-  margin-left: 25%;
+
+@media screen and (max-width: 1050px) {
+  .tableContainer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
 }
-@media only screen and (max-width: 1500px) {
-.tableContainer {
- width: 800px;
-  margin-left: 25%;
+
+@media screen and (max-width: 600px) {
+  .previousButton {
+    margin-right: 10px !important; 
+    
+  }
 }
-.myLessons {
-  width: 1000px;
-  margin-left: 15%;
+.mylessonswrapper{
+  padding-top: 20px;
+  height: 727px;
+  background-color:rgb(245, 245, 245);
 }
-}
+
+
 
 .previousButton{
   margin-right: 300px;
@@ -607,8 +616,8 @@ background-color: rgb(245, 245, 245);
 
 .availabilitiesWrapper{
 background-color: rgb(245, 245, 245);
-height: 100%;
-padding-bottom:60%; 
+height: 747px;
+
 }
 .availabilitiesWrapper h1{
   padding-top: 20px;
