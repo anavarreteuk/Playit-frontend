@@ -6,7 +6,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from "@material-ui/core/Button";
-import geolib from "geolib";
 
 const styles = theme => ({
     root: {
