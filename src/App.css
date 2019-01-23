@@ -574,6 +574,13 @@ padding-right: 200px;
   
 }
 
+@media screen and (max-width: 600px) {
+  .previousButton {
+    margin-right: 10px !important; 
+    
+  }
+}
+
 .myLessons {
   width: 1000px;
   margin-left: 25%;
