@@ -580,16 +580,12 @@ padding-right: 200px;
     
   }
 }
-
-.myLessons {
-  width: 1000px;
-  margin-left: 25%;
+.mylessonswrapper{
+  padding-top: 20px;
+  height: 727px;
+  background-color:rgb(245, 245, 245);
 }
 
-.myLessons {
-  width: 1000px;
-  margin-left: 15%;
-}
 
 
 .previousButton{
@@ -619,9 +615,9 @@ background-color: rgb(245, 245, 245);
 }
 
 .availabilitiesWrapper{
-/* background-color: rgb(245, 245, 245);
-height: 100%;
-padding-bottom:60%;  */
+background-color: rgb(245, 245, 245);
+height: 747px;
+
 }
 .availabilitiesWrapper h1{
   padding-top: 20px;
