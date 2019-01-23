@@ -94,7 +94,7 @@ export default class Availabilities extends React.Component {
     
     return <div className='availabilitiesWrapper'>
         {" "}
-        <div className="availabilitiesContainer">
+        
           <h1>
             Week of{" "}
             {this.props.match.params.date
@@ -121,7 +121,7 @@ export default class Availabilities extends React.Component {
             studentId={this.props.studentId}
           />
         ))} */}
-        </div>
+        
       </div>
 }
 }
