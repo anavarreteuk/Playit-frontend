@@ -36,18 +36,29 @@ class Teachers extends Component {
     const allTeachers = this.props.teachers;
     var regex = new RegExp(this.state.inputValue, "ig");
 
-    return allTeachers.filter(teacher =>
-      teacher.instrument.name.match(regex))
-    ;
+    return allTeachers.filter(teacher => teacher.instrument.name.match(regex));
   };
 
   render() {
     const { classes } = this.props;
-    
-    return <div className="teachersAndMap">
+
+    return (
+      <div className="teachersAndMap">
         <div className="teachers">
           <form className={classes.container} noValidate autoComplete="off">
-            <TextField autoFocus={true} fullWidth={true} id="outlined-with-placeholder" label="What would you like to learn?" placeholder="Placeholder" className={classes.textField} margin="normal" variant="outlined" onChange={this.handleChange} name="inputValue" value={this.state.inputValue} />
+            <TextField
+              autoFocus={true}
+              fullWidth={true}
+              id="outlined-with-placeholder"
+              label="What would you like to learn?"
+              placeholder="Placeholder"
+              className={classes.textField}
+              margin="normal"
+              variant="outlined"
+              onChange={this.handleChange}
+              name="inputValue"
+              value={this.state.inputValue}
+            />
           </form>
           <div className="wrapper">
             {this.filteredTeachers().map(teacher => (
@@ -64,9 +75,13 @@ class Teachers extends Component {
           </div>
         </div>
         <div className="map">
-          <MapContainer geolocation={this.props.geolocation} teachers={this.filteredTeachers()} />
+          <MapContainer
+            geolocation={this.props.geolocation}
+            teachers={this.filteredTeachers()}
+          />
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 

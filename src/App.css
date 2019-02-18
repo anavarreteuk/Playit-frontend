@@ -87,7 +87,7 @@ text-shadow: rgba(0, 0, 0, 0.90) 0px 0px 0.5px;
   cursor: pointer;
 } */
 #Ob{
-  background-image: url('oboe.jpeg');
+  background-image: url('pictures/oboe.jpeg');
   z-index: 1;
    cursor: pointer;
    border-style: solid;
@@ -131,25 +131,25 @@ text-shadow: rgba(0, 0, 0, 0.90) 0px 0px 0.5px;
 	transition: .4s ease-in-out;
 }
 #Flu{
-  background-image: url('flute.jpg');
+  background-image: url('pictures/flute.jpg');
   z-index: 1;
   cursor: pointer;
   border-style: solid;
 }
 #Vi{
-  background-image: url('violin.png');
+  background-image: url('pictures/violin.png');
   z-index: 1;
   cursor: pointer;
   border-style: solid;
 }
 #Gui{
-  background-image: url('guitar.png');
+  background-image: url('pictures/guitar.png');
   z-index: 1;
   cursor: pointer;
   border-style: solid;
 }
 #Pi{
-  background-image: url('piano.png');
+  background-image: url('pictures/piano.png');
   z-index: 1;
     cursor: pointer;
     border-style: solid;
@@ -157,7 +157,7 @@ text-shadow: rgba(0, 0, 0, 0.90) 0px 0px 0.5px;
   
 }
 #Dru{
-  background-image: url('drums.png');
+  background-image: url('pictures/drums.png');
     z-index: 1;
       cursor: pointer;
 border-style: solid;

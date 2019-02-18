@@ -1,10 +1,8 @@
 import React from "react";
 import { Marker } from "react-google-maps";
 
-export default class MyMarker extends React.Component {
+const MyMarker = (props) => {
+  return <Marker position={props.location} />;
+};
 
-    render() {
-        return <Marker position={this.props.location}
-             />;
-    }
-}
+export default MyMarker;
