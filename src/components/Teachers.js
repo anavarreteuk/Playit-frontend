@@ -61,7 +61,7 @@ class Teachers extends Component {
             />
           </form>
           <div className="wrapper">
-            {this.filteredTeachers().map(teacher => (
+            {this.filteredTeachers && this.filteredTeachers().map(teacher => (
               <div className="inditem" key={teacher.id}>
                 <ComplexGrid
                   geolocation={this.props.geolocation}
