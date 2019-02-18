@@ -1,11 +1,9 @@
 import React from "react";
 import { Marker } from "react-google-maps";
-import music from '../music-player.png'
+import music from "../picturesComponents/music-player.png";
 
-export default class TeacherMarker extends React.Component {
+const TeacherMarker = (props) => {
+  return <Marker position={props.location} icon={music} />;
+};
 
-    render() {
-        return <Marker position={this.props.location} 
-        icon={music}/>;
-    }
-}
+export default TeacherMarker;
