@@ -101,7 +101,7 @@ export default class Availabilities extends React.Component {
               .match(/\d{2}(?=\d{4,6})|\d+/g)
               .join("/")}
           </h1>
-          {!("21012019" === this.props.match.params.date) ? <button className="previousButton" onClick={this.handlePrevious}>
+          {!("18022019" === this.props.match.params.date) ? <button className="previousButton" onClick={this.handlePrevious}>
               Previous Week
             </button> : ""}
           <button className="nextButton" onClick={this.handleNext}>
