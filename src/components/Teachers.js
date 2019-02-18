@@ -36,7 +36,7 @@ class Teachers extends Component {
     const allTeachers = this.props.teachers;
     var regex = new RegExp(this.state.inputValue, "ig");
 
-    return allTeachers.filter(teacher => teacher.instrument.name.match(regex));
+    return allTeachers && allTeachers.filter(teacher => teacher.instrument.name.match(regex));
   };
 
   render() {
